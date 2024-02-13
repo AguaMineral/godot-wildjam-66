@@ -93,6 +93,10 @@ pause={
 
 locale/translations=PackedStringArray("res://i18n/translation.de.translation", "res://i18n/translation.en.translation")
 
+[layer_names]
+
+2d_physics/layer_2="interactions"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

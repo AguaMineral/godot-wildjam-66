@@ -2,16 +2,22 @@
 
 [ext_resource type="Script" path="res://scenes/ingame_scene.gd" id="1_objyc"]
 [ext_resource type="PackedScene" uid="uid://bkk87o2ooo6at" path="res://ui/overlays/fade_overlay.tscn" id="1_y6ebv"]
-[ext_resource type="Texture2D" uid="uid://dmelj2qgr8w7k" path="res://icon.svg" id="2_h1yxu"]
+[ext_resource type="PackedScene" uid="uid://b8kyamlltpxko" path="res://player/player.tscn" id="2_glg7n"]
 [ext_resource type="PackedScene" uid="uid://jyv4g54adkmo" path="res://ui/overlays/pause_overlay.tscn" id="3_8o178"]
-[ext_resource type="Script" path="res://scenes/node_example.gd" id="3_a5686"]
+[ext_resource type="PackedScene" uid="uid://cklqhig5f0njo" path="res://game_components/interact_area/interact_area.tscn" id="3_at0lu"]
 
 [node name="IngameScene" type="Node2D"]
 script = ExtResource("1_objyc")
 
-[node name="NodeExample" type="Sprite2D" parent="." groups=["Persist"]]
-texture = ExtResource("2_h1yxu")
-script = ExtResource("3_a5686")
+[node name="Player" parent="." instance=ExtResource("2_glg7n")]
+
+[node name="InteractionObjects" type="Node2D" parent="."]
+
+[node name="InteractArea" parent="InteractionObjects" instance=ExtResource("3_at0lu")]
+position = Vector2(459, 208)
+interact_label = "Area1"
+interact_type = "print_text"
+interact_value = "Ojito"
 
 [node name="UI" type="CanvasLayer" parent="."]
 

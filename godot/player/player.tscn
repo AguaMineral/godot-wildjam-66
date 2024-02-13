@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=3 uid="uid://b8kyamlltpxko"]
+
+[ext_resource type="Script" path="res://player/player.gd" id="1_h58sk"]
+[ext_resource type="Texture2D" uid="uid://dmelj2qgr8w7k" path="res://icon.svg" id="2_rwxj7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bmrxd"]
+size = Vector2(125, 128)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0dga8"]
+radius = 130.553
+
+[node name="Player" type="CharacterBody2D" groups=["Persist"]]
+script = ExtResource("1_h58sk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_rwxj7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 1)
+shape = SubResource("RectangleShape2D_bmrxd")
+
+[node name="InteractionComponents" type="Node2D" parent="."]
+z_index = 1
+
+[node name="InteractionArea" type="Area2D" parent="InteractionComponents"]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionComponents/InteractionArea"]
+shape = SubResource("CircleShape2D_0dga8")
+
+[node name="InteractLabel" type="Label" parent="InteractionComponents"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -161.0
+offset_top = -156.0
+offset_right = 161.0
+offset_bottom = -133.0
+grow_horizontal = 2
+text = "Interactable text"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="area_entered" from="InteractionComponents/InteractionArea" to="." method="_on_interaction_area_area_entered"]
+[connection signal="area_exited" from="InteractionComponents/InteractionArea" to="." method="_on_interaction_area_area_exited"]
