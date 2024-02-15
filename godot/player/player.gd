@@ -1,10 +1,14 @@
 extends CharacterBody2D
 
 @onready var interact_label = $InteractionComponents/InteractLabel
+@onready var knockback_timer = $KnockbackTimer
 
 @onready var all_interactions = []
 
 @export var speed = 400  # speed in pixels/sec
+var knockback : Vector2 = Vector2(0,0)
+var knockbackTween
+var in_knockback = false
 
 # specify in nodes to load data
 # from save game for this node
@@ -20,15 +24,19 @@ func save_data() -> Dictionary:
 
 func _ready():
 	interact_label.text = ""
+	GameManager.player_projectile_hit.connect(_on_player_hit)
 
 func _physics_process(delta):
 	handle_movement()
 	handle_input()
 
 func handle_movement():
-	var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
-	velocity = direction * speed
-	
+	var direction = Vector2.ZERO
+	#if (knockback == Vector2.ZERO):
+	if(knockback_timer.time_left <= 0.0):
+		direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	velocity = (direction * speed) + knockback
+	knockback = lerp(knockback, Vector2.ZERO, 0.2)
 	move_and_slide()
 
 func handle_input():
@@ -67,3 +75,10 @@ func execute_interaction():
 				if current_interaction.interaction_parent != null:
 					if current_interaction.interaction_parent.has_method("move_object"):
 						current_interaction.interaction_parent.move_object()
+
+func _on_player_hit():
+	hit()
+
+func hit():
+	knockback_timer.start()
+	knockback = -velocity.normalized() * 2000

@@ -1,15 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://c44qjrc364yxo"]
+[gd_scene load_steps=7 format=3 uid="uid://c44qjrc364yxo"]
 
 [ext_resource type="Texture2D" uid="uid://dmelj2qgr8w7k" path="res://icon.svg" id="1_xnpjh"]
 [ext_resource type="Script" path="res://puzzlePieces/turret.gd" id="1_yr5t0"]
 [ext_resource type="PackedScene" uid="uid://cklqhig5f0njo" path="res://game_components/interact_area/interact_area.tscn" id="3_ucajd"]
 [ext_resource type="PackedScene" uid="uid://gtncp4o70a1s" path="res://game_components/MoveGridobjectComponent/move_grid_object_component.tscn" id="4_e5sxo"]
+[ext_resource type="PackedScene" uid="uid://bf8vei134q8wv" path="res://game_components/shooter_component/shooter_component.tscn" id="5_lry1f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mu44r"]
 size = Vector2(126, 126)
 
 [node name="Turret" type="StaticBody2D"]
-collision_layer = 5
+collision_layer = 32
+collision_mask = 8
 script = ExtResource("1_yr5t0")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -26,3 +28,5 @@ interaction_parent = NodePath("../MoveGridObjectComponent")
 
 [node name="MoveGridObjectComponent" parent="." node_paths=PackedStringArray("object_to_move") instance=ExtResource("4_e5sxo")]
 object_to_move = NodePath("..")
+
+[node name="ShooterComponent" parent="." instance=ExtResource("5_lry1f")]

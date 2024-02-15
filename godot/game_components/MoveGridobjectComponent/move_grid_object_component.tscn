@@ -26,19 +26,19 @@ collision_mask = 8
 
 [node name="RayCastDown2" type="RayCast2D" parent="."]
 target_position = Vector2(0, 100)
-collision_mask = 4
+collision_mask = 32
 
 [node name="RayCastLef2" type="RayCast2D" parent="."]
 rotation = 1.5708
 target_position = Vector2(0, 100)
-collision_mask = 4
+collision_mask = 32
 
 [node name="RayCastUp2" type="RayCast2D" parent="."]
 rotation = 1.5708
 target_position = Vector2(-100, 0)
-collision_mask = 4
+collision_mask = 32
 
 [node name="RayCastRight2" type="RayCast2D" parent="."]
 rotation = 1.5708
 target_position = Vector2(0, -100)
-collision_mask = 4
+collision_mask = 32
