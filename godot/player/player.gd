@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @onready var interact_label = $InteractionComponents/InteractLabel
 @onready var knockback_timer = $KnockbackTimer
+@onready var animation_player = $AnimationPlayer
 
 @onready var all_interactions = []
 
@@ -78,10 +79,9 @@ func execute_interaction():
 
 func _on_player_hit(y_coord : float):
 	hit(y_coord)
-	print(knockback)
 
 func hit(y_coord : float):
-	
+	animation_player.play("player_boing")
 	if y_coord >= global_position.y:
 		knockback = Vector2.UP * 2000
 	else:

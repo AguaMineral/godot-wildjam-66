@@ -1,11 +1,11 @@
 [gd_scene load_steps=10 format=3 uid="uid://h5s0aae2ff5k"]
 
 [ext_resource type="Script" path="res://test/test_scene.gd" id="1_4minq"]
-[ext_resource type="Texture2D" uid="uid://dmelj2qgr8w7k" path="res://icon.svg" id="2_p3deu"]
 [ext_resource type="PackedScene" uid="uid://cklqhig5f0njo" path="res://game_components/interact_area/interact_area.tscn" id="3_nql3f"]
 [ext_resource type="PackedScene" uid="uid://b8kyamlltpxko" path="res://player/player.tscn" id="3_nuxtl"]
 [ext_resource type="PackedScene" uid="uid://c44qjrc364yxo" path="res://puzzlePieces/turret.tscn" id="4_0du5l"]
 [ext_resource type="Texture2D" uid="uid://de37h2wjl7moh" path="res://assets/TileSet128.png" id="5_5glqr"]
+[ext_resource type="Texture2D" uid="uid://cn22f80d46mo1" path="res://assets/Witch.png" id="6_by3od"]
 [ext_resource type="PackedScene" uid="uid://dt278af587n8f" path="res://puzzlePieces/exit_door.tscn" id="7_kjku7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w8bid"]
@@ -18,7 +18,10 @@ tile_size = Vector2i(128, 128)
 sources/0 = SubResource("TileSetAtlasSource_w8bid")
 
 [node name="TestScene" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_4minq")
+
+[node name="Player" parent="." instance=ExtResource("3_nuxtl")]
 
 [node name="ExitDoor" parent="." instance=ExtResource("7_kjku7")]
 position = Vector2(64, 448)
@@ -26,47 +29,15 @@ next_scene = ExtResource("3_nuxtl")
 
 [node name="Interactibles" type="Node2D" parent="."]
 
-[node name="Witch" type="Sprite2D" parent="Interactibles"]
-modulate = Color(1, 0.368627, 1, 1)
-position = Vector2(1257, 192)
-texture = ExtResource("2_p3deu")
-
-[node name="InteractArea" parent="Interactibles/Witch" instance=ExtResource("3_nql3f")]
-interact_label = "Talk"
-interact_type = "print_text"
-interact_value = "Hablas con la bruja"
-
-[node name="Witch2" type="Sprite2D" parent="Interactibles"]
-modulate = Color(1, 0.368627, 1, 1)
-position = Vector2(1265, 855)
-texture = ExtResource("2_p3deu")
-
-[node name="InteractArea" parent="Interactibles/Witch2" instance=ExtResource("3_nql3f")]
-interact_label = "Talk"
-interact_type = "print_text"
-interact_value = "Hablas con la bruja"
-
-[node name="Witch3" type="Sprite2D" parent="Interactibles"]
-modulate = Color(1, 0.368627, 1, 1)
-position = Vector2(1054, 99)
-texture = ExtResource("2_p3deu")
-
-[node name="InteractArea" parent="Interactibles/Witch3" instance=ExtResource("3_nql3f")]
-interact_label = "Talk"
-interact_type = "print_text"
-interact_value = "Hablas con la bruja"
-
 [node name="Witch4" type="Sprite2D" parent="Interactibles"]
-modulate = Color(1, 0.368627, 1, 1)
-position = Vector2(1300, 472)
-texture = ExtResource("2_p3deu")
+position = Vector2(1280, 256)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("6_by3od")
 
 [node name="InteractArea" parent="Interactibles/Witch4" instance=ExtResource("3_nql3f")]
 interact_label = "Talk To ME"
 interact_type = "dialog_test"
 interact_value = "Hablas con la bruja"
-
-[node name="Player" parent="." instance=ExtResource("3_nuxtl")]
 
 [node name="UI" type="CanvasLayer" parent="."]
 
