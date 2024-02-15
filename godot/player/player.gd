@@ -76,9 +76,17 @@ func execute_interaction():
 					if current_interaction.interaction_parent.has_method("move_object"):
 						current_interaction.interaction_parent.move_object()
 
-func _on_player_hit():
-	hit()
+func _on_player_hit(y_coord : float):
+	hit(y_coord)
+	print(knockback)
 
-func hit():
+func hit(y_coord : float):
+	
+	if y_coord >= global_position.y:
+		knockback = Vector2.UP * 2000
+	else:
+		knockback = Vector2.DOWN * 2000
 	knockback_timer.start()
-	knockback = -velocity.normalized() * 2000
+	#knockback = -velocity.normalized() * 2000
+	#if abs(knockback) == Vector2.ZERO:
+		#pass

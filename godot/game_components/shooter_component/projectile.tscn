@@ -1,29 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://udqjalhye14d"]
+[gd_scene load_steps=3 format=3 uid="uid://udqjalhye14d"]
 
 [ext_resource type="Texture2D" uid="uid://dmelj2qgr8w7k" path="res://icon.svg" id="1_7buvo"]
 [ext_resource type="Script" path="res://game_components/shooter_component/projectile.gd" id="1_wq3lx"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_0416l"]
-
-[node name="Projectile" type="Area2D"]
-collision_layer = 0
-collision_mask = 0
-monitoring = false
-monitorable = false
-script = ExtResource("1_wq3lx")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D"]
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("1_7buvo")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_0416l")
+script = ExtResource("1_wq3lx")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0
 one_shot = true
 autostart = true
-
-[connection signal="area_entered" from="." to="." method="_on_area_entered"]
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

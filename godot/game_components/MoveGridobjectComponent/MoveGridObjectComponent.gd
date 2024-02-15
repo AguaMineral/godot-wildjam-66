@@ -4,6 +4,13 @@ class_name MoveGridObjectComp extends Node2D
 @onready var ray_cast_lef = $RayCastLef
 @onready var ray_cast_right = $RayCastRight
 @onready var ray_cast_up = $RayCastUp
+
+@onready var ray_cast_down_3 = $RayCastDown3
+@onready var ray_cast_up_3 = $RayCastUp3
+@onready var ray_cast_right_3 = $RayCastRight3
+@onready var ray_cast_lef_3 = $RayCastLef3
+
+
 @onready var ray_cast_down_2 = $RayCastDown2
 @onready var ray_cast_up_2 = $RayCastUp2
 @onready var ray_cast_right_2 = $RayCastRight2
@@ -25,23 +32,31 @@ func _physics_process(delta):
 
 func set_move_direction():
 	move_dir = Vector2.ZERO
+	
+	#  hit with player
 	var ray_right_hit = ray_cast_right.is_colliding()
 	var ray_left_hit = ray_cast_lef.is_colliding()
 	var ray_down_hit = ray_cast_down.is_colliding()
 	var ray_up_hit = ray_cast_up.is_colliding()
 	
+	var ray_right_hit_2 = ray_cast_right_3.is_colliding()
+	var ray_left_hit_2 = ray_cast_lef_3.is_colliding()
+	var ray_down_hit_2 = ray_cast_down_3.is_colliding()
+	var ray_up_hit_2 = ray_cast_up_3.is_colliding()
+	
+	#hit with env
 	var ray_right_hit_env = ray_cast_right_2.is_colliding()
 	var ray_left_hit_env = ray_cast_lef_2.is_colliding()
 	var ray_down_hit_env = ray_cast_down_2.is_colliding()
 	var ray_up_hit_env = ray_cast_up_2.is_colliding()
 	
-	if ray_down_hit and not ray_up_hit_env:
+	if (ray_down_hit or ray_down_hit_2) and not ray_up_hit_env:
 		move_dir = Vector2.UP
-	elif ray_up_hit and not ray_down_hit_env:
+	elif (ray_up_hit or ray_up_hit_2) and not ray_down_hit_env:
 		move_dir = Vector2.DOWN
-	elif ray_right_hit and not ray_left_hit_env:
+	elif (ray_right_hit or ray_right_hit_2) and not ray_left_hit_env:
 		move_dir = Vector2.LEFT
-	elif ray_left_hit and not ray_right_hit_env:
+	elif (ray_left_hit or ray_left_hit_2) and not ray_right_hit_env:
 		move_dir = Vector2.RIGHT
 
 func move_object() -> void:
