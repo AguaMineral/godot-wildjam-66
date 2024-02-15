@@ -45,8 +45,6 @@ func handle_input():
 	if Input.is_action_just_pressed("restart_level"):
 		get_tree().reload_current_scene()
 
-# Interactions
-
 func _on_interaction_area_area_entered(area):
 	all_interactions.insert(0,area)
 	update_interactions()
