@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://c44qjrc364yxo"]
+
+[ext_resource type="Texture2D" uid="uid://dmelj2qgr8w7k" path="res://icon.svg" id="1_xnpjh"]
+[ext_resource type="Script" path="res://puzzlePieces/turret.gd" id="1_yr5t0"]
+[ext_resource type="PackedScene" uid="uid://cklqhig5f0njo" path="res://game_components/interact_area/interact_area.tscn" id="3_ucajd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mu44r"]
+size = Vector2(126, 126)
+
+[node name="Turret" type="StaticBody2D"]
+script = ExtResource("1_yr5t0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 0.47451, 1, 1)
+texture = ExtResource("1_xnpjh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_mu44r")
+
+[node name="RayCastDown" type="RayCast2D" parent="."]
+target_position = Vector2(0, 100)
+
+[node name="RayCastLef" type="RayCast2D" parent="."]
+rotation = 1.5708
+target_position = Vector2(0, 100)
+
+[node name="RayCastUp" type="RayCast2D" parent="."]
+rotation = 1.5708
+target_position = Vector2(-100, 0)
+
+[node name="RayCastRight" type="RayCast2D" parent="."]
+rotation = 1.5708
+target_position = Vector2(0, -100)
+
+[node name="InteractArea" parent="." node_paths=PackedStringArray("interaction_parent") instance=ExtResource("3_ucajd")]
+interact_label = "Push"
+interact_type = "move_object"
+interaction_parent = NodePath("..")

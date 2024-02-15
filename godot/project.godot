@@ -23,8 +23,34 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 
 [dialogic]
 
-directories/dch_directory={}
-directories/dtl_directory={}
+directories/dch_directory={
+"player": "res://dialogic_timelines/Characters/player.dch",
+"witch": "res://dialogic_timelines/Characters/witch.dch"
+}
+directories/dtl_directory={
+"test_timeline": "res://dialogic_timelines/test_timeline.dtl"
+}
+glossary/default_case_sensitive=true
+variables={}
+text/letter_speed=0.05
+text/initial_text_reveal_skippable=true
+text/text_reveal_skip_delay=0.2
+text/autoadvance_per_character_delay=0.1
+text/autoadvance_ignored_characters_enabled=true
+animations/join_default_length=0.5
+animations/leave_default_length=0.5
+animations/leave_default_wait=true
+animations/join_default_wait=true
+choices/autofocus_first=true
+choices/delay=0.2
+choices/reveal_delay=0
+choices/reveal_by_input=false
+save/autosave_delay=60.0
+save/encryption_on_exports_only=true
+text/autocolor_names=false
+text/split_at_new_lines=false
+text/split_at_new_lines_as=0
+text/autopauses={}
 
 [display]
 

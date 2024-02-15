@@ -57,3 +57,13 @@ func execute_interaction():
 		var current_interaction = all_interactions[0]
 		match current_interaction.interact_type:
 			"print_text": print(current_interaction.interact_value)
+			"dialog_test": 
+				if Dialogic.current_timeline != null:
+					return
+				else:
+					Dialogic.start("test_timeline")
+					get_viewport().set_input_as_handled()
+			"move_object":
+				if current_interaction.interaction_parent != null:
+					if current_interaction.interaction_parent.has_method("move_object"):
+						current_interaction.interaction_parent.move_object()
