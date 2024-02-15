@@ -3,9 +3,8 @@
 [ext_resource type="Script" path="res://player/player.gd" id="1_h58sk"]
 [ext_resource type="Texture2D" uid="uid://dmelj2qgr8w7k" path="res://icon.svg" id="2_rwxj7"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w0jbs"]
-radius = 36.5
-height = 118.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rggyx"]
+size = Vector2(120, 121)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0dga8"]
 radius = 130.553
@@ -19,8 +18,8 @@ script = ExtResource("1_h58sk")
 texture = ExtResource("2_rwxj7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 1)
-shape = SubResource("CapsuleShape2D_w0jbs")
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_rggyx")
 
 [node name="InteractionComponents" type="Node2D" parent="."]
 z_index = 1
