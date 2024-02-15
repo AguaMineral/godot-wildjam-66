@@ -28,13 +28,16 @@ position = Vector2(64, 448)
 next_scene = ExtResource("3_nuxtl")
 
 [node name="Interactibles" type="Node2D" parent="."]
+y_sort_enabled = true
 
 [node name="Witch4" type="Sprite2D" parent="Interactibles"]
-position = Vector2(1280, 256)
+position = Vector2(1280, 384)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("6_by3od")
+offset = Vector2(0, -160)
 
 [node name="InteractArea" parent="Interactibles/Witch4" instance=ExtResource("3_nql3f")]
+position = Vector2(0, -160)
 interact_label = "Talk To ME"
 interact_type = "dialog_test"
 interact_value = "Hablas con la bruja"
