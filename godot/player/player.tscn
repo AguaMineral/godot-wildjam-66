@@ -10,6 +10,7 @@ size = Vector2(125, 128)
 radius = 130.553
 
 [node name="Player" type="CharacterBody2D" groups=["Persist"]]
+collision_layer = 9
 script = ExtResource("1_h58sk")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

@@ -1,0 +1,44 @@
+[gd_scene load_steps=2 format=3 uid="uid://gtncp4o70a1s"]
+
+[ext_resource type="Script" path="res://game_components/MoveGridobjectComponent/MoveGridObjectComponent.gd" id="1_7uko5"]
+
+[node name="MoveGridObjectComponent" type="Node2D"]
+script = ExtResource("1_7uko5")
+
+[node name="RayCastDown" type="RayCast2D" parent="."]
+target_position = Vector2(0, 100)
+collision_mask = 8
+
+[node name="RayCastLef" type="RayCast2D" parent="."]
+rotation = 1.5708
+target_position = Vector2(0, 100)
+collision_mask = 8
+
+[node name="RayCastUp" type="RayCast2D" parent="."]
+rotation = 1.5708
+target_position = Vector2(-100, 0)
+collision_mask = 8
+
+[node name="RayCastRight" type="RayCast2D" parent="."]
+rotation = 1.5708
+target_position = Vector2(0, -100)
+collision_mask = 8
+
+[node name="RayCastDown2" type="RayCast2D" parent="."]
+target_position = Vector2(0, 100)
+collision_mask = 4
+
+[node name="RayCastLef2" type="RayCast2D" parent="."]
+rotation = 1.5708
+target_position = Vector2(0, 100)
+collision_mask = 4
+
+[node name="RayCastUp2" type="RayCast2D" parent="."]
+rotation = 1.5708
+target_position = Vector2(-100, 0)
+collision_mask = 4
+
+[node name="RayCastRight2" type="RayCast2D" parent="."]
+rotation = 1.5708
+target_position = Vector2(0, -100)
+collision_mask = 4

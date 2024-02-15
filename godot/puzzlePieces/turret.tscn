@@ -1,13 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://c44qjrc364yxo"]
+[gd_scene load_steps=6 format=3 uid="uid://c44qjrc364yxo"]
 
 [ext_resource type="Texture2D" uid="uid://dmelj2qgr8w7k" path="res://icon.svg" id="1_xnpjh"]
 [ext_resource type="Script" path="res://puzzlePieces/turret.gd" id="1_yr5t0"]
 [ext_resource type="PackedScene" uid="uid://cklqhig5f0njo" path="res://game_components/interact_area/interact_area.tscn" id="3_ucajd"]
+[ext_resource type="PackedScene" uid="uid://gtncp4o70a1s" path="res://game_components/MoveGridobjectComponent/move_grid_object_component.tscn" id="4_e5sxo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mu44r"]
 size = Vector2(126, 126)
 
 [node name="Turret" type="StaticBody2D"]
+collision_layer = 5
 script = ExtResource("1_yr5t0")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -17,22 +19,10 @@ texture = ExtResource("1_xnpjh")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_mu44r")
 
-[node name="RayCastDown" type="RayCast2D" parent="."]
-target_position = Vector2(0, 100)
-
-[node name="RayCastLef" type="RayCast2D" parent="."]
-rotation = 1.5708
-target_position = Vector2(0, 100)
-
-[node name="RayCastUp" type="RayCast2D" parent="."]
-rotation = 1.5708
-target_position = Vector2(-100, 0)
-
-[node name="RayCastRight" type="RayCast2D" parent="."]
-rotation = 1.5708
-target_position = Vector2(0, -100)
-
 [node name="InteractArea" parent="." node_paths=PackedStringArray("interaction_parent") instance=ExtResource("3_ucajd")]
 interact_label = "Push"
 interact_type = "move_object"
-interaction_parent = NodePath("..")
+interaction_parent = NodePath("../MoveGridObjectComponent")
+
+[node name="MoveGridObjectComponent" parent="." node_paths=PackedStringArray("object_to_move") instance=ExtResource("4_e5sxo")]
+object_to_move = NodePath("..")
