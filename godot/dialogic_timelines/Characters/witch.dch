@@ -2,10 +2,31 @@
 "@path": "res://addons/dialogic/Resources/character.gd",
 "@subpath": NodePath(""),
 "_translation_id": "",
-"color": Color(1, 1, 1, 1),
+"color": Color(0.592157, 0, 1, 1),
 "custom_info": {
 "sound_mood_default": "",
-"sound_moods": {},
+"sound_moods": {
+"Mood 1": {
+"mode": 0,
+"name": "Mood 1",
+"pitch_base": 4.0,
+"pitch_variance": 1.0,
+"skip_characters": 1.0,
+"sound_path": "res://assets/sounds/Single_Low_O_No_Reverb_v1_wav.wav",
+"volume_base": 0.0,
+"volume_variance": 0.0
+},
+"Mood 1_copy": {
+"mode": 0,
+"name": "Mood 1_copy",
+"pitch_base": 4.0,
+"pitch_variance": 1.0,
+"skip_characters": 2.0,
+"sound_path": "res://assets/sounds/Single_Low_O_No_Reverb_v1_wav.wav",
+"volume_base": 0.0,
+"volume_variance": 0.0
+}
+},
 "style": ""
 },
 "default_portrait": "witch_potrait",
@@ -22,7 +43,8 @@
 "mirror": false,
 "offset": Vector2(0, 0),
 "scale": 1.0,
-"scene": ""
+"scene": "",
+"sound_mood": ""
 },
 "TileSet": {
 "export_overrides": {
@@ -77,7 +99,8 @@
 "mirror": false,
 "offset": Vector2(200, -160),
 "scale": 0.2,
-"scene": ""
+"scene": "",
+"sound_mood": "Mood 1"
 }
 },
 "scale": 1.0
