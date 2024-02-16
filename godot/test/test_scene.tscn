@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://h5s0aae2ff5k"]
+[gd_scene load_steps=14 format=3 uid="uid://h5s0aae2ff5k"]
 
 [ext_resource type="Script" path="res://test/test_scene.gd" id="1_4minq"]
 [ext_resource type="PackedScene" uid="uid://cklqhig5f0njo" path="res://game_components/interact_area/interact_area.tscn" id="3_nql3f"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dt278af587n8f" path="res://puzzlePieces/exit_door.tscn" id="7_kjku7"]
 [ext_resource type="PackedScene" uid="uid://uvp3ycuekgkg" path="res://puzzlePieces/inmovable_object.tscn" id="8_emwdh"]
 [ext_resource type="PackedScene" uid="uid://bejfg2rn3lptj" path="res://puzzlePieces/projectile_rotator.tscn" id="9_lm8j3"]
+[ext_resource type="PackedScene" uid="uid://dfxg5vkuqmmtm" path="res://puzzlePieces/projectile_rotator_down.tscn" id="11_0lvyb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w8bid"]
 texture = ExtResource("5_5glqr")
@@ -99,3 +100,6 @@ face_left = true
 
 [node name="ProjectileRotator" parent="." instance=ExtResource("9_lm8j3")]
 position = Vector2(768, 448)
+
+[node name="ProjectileRotatorDown" parent="." instance=ExtResource("11_0lvyb")]
+position = Vector2(792, 896)

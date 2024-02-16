@@ -2,9 +2,15 @@ extends StaticBody2D
 @onready var marker_2d = $Marker2D
 @export var Bullet : PackedScene
 @onready var timer = $Timer
+@onready var bullet_detection_area = $BulletDetectionArea
 
 func _on_area_2d_area_entered(area):
-	call_deferred("shoot")
+	if !area.is_in_group("rotator_projectile"):
+		call_deferred("shoot")
+	
+	var area_parent = area.get_parent().get_parent()
+	if area_parent != marker_2d:
+		area.get_parent().queue_free()
 
 func shoot():
 	
