@@ -3,6 +3,7 @@ extends CharacterBody2D
 @onready var interact_label = $InteractionComponents/InteractLabel
 @onready var knockback_timer = $KnockbackTimer
 @onready var animation_player = $AnimationPlayer
+@onready var sprite_2d = $Sprite2D
 
 @onready var all_interactions = []
 
@@ -36,6 +37,14 @@ func handle_movement():
 	#if (knockback == Vector2.ZERO):
 	if(knockback_timer.time_left <= 0.0):
 		direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	
+	if direction != Vector2.ZERO:
+		if direction.x < 0:
+			sprite_2d.flip_h = false
+		elif direction.x > 0:
+			sprite_2d.flip_h = true
+	elif knockback_timer.time_left <= 0.0 and !animation_player.is_playing():
+		animation_player.play("player_walking")
 	velocity = (direction * speed) + knockback
 	knockback = lerp(knockback, Vector2.ZERO, 0.2)
 	move_and_slide()
@@ -81,6 +90,7 @@ func _on_player_hit(y_coord : float):
 	hit(y_coord)
 
 func hit(y_coord : float):
+	animation_player.stop()
 	animation_player.play("player_boing")
 	if y_coord >= global_position.y:
 		knockback = Vector2.UP * 2000

@@ -1,8 +1,8 @@
-join witch 1
-HIHIHIHIHIAISHIAHSIIHIIHIAAJAJAJAJAJAJAJAIAJXAXAXAXAXAXAAX
-witch: How you doin??????
-join player 1
-player: good \:D
-[signal]
-[signal]
+join witch (witch_potrait) 1
+witch (witch_potrait): HIHIHIHIHIAISHIAHSIIHIIHIAAJAJAJAJAJAJAJAIAJXAXAXAXAXAXAAX
+witch (witch_potrait): How you doin??????
+join player (joni_potrait) 3
+player (joni_potrait): good \:D
+leave witch
+leave player
 [end_timeline]

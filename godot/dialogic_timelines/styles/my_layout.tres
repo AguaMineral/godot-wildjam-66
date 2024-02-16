@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="DialogicStyle" load_steps=3 format=3 uid="uid://e3qr67x3p5k8"]
+
+[ext_resource type="PackedScene" uid="uid://cqpb3ie51rwl5" path="res://dialogic_timelines/styles/CustomMyLayout/custom_my_layout.tscn" id="1_xbkma"]
+[ext_resource type="Script" path="res://addons/dialogic/Resources/dialogic_style.gd" id="9_pp2bv"]
+
+[resource]
+script = ExtResource("9_pp2bv")
+name = "my_layout"
+base_scene = ExtResource("1_xbkma")
+base_overrides = {
+"global_bg_color": "Color(0.298039, 0.2, 0.113725, 0.901961)"
+}
+layers = Array[Resource("res://addons/dialogic/Resources/dialogic_style_layer.gd")]([])
+metadata/_latest_layer = -1
