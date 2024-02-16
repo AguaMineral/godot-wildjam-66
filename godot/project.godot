@@ -52,8 +52,8 @@ text/autocolor_names=false
 text/split_at_new_lines=false
 text/split_at_new_lines_as=0
 text/autopauses={}
-layout/style_list=[]
-layout/default_style=""
+layout/style_list=["res://dialogic_timelines/styles/MyStyleDialogic.tres"]
+layout/default_style="res://dialogic_timelines/styles/MyStyleDialogic.tres"
 
 [display]
 
@@ -145,6 +145,8 @@ locale/translations=PackedStringArray("res://i18n/translation.de.translation", "
 
 [layer_names]
 
+2d_render/layer_1="environment"
+2d_render/layer_2="player"
 2d_physics/layer_2="interactions"
 2d_physics/layer_3="enviroment"
 2d_physics/layer_4="player"
@@ -154,5 +156,5 @@ locale/translations=PackedStringArray("res://i18n/translation.de.translation", "
 
 [rendering]
 
-renderer/rendering_method="gl_compatibility"
+renderer/rendering_method="mobile"
 environment/defaults/default_clear_color=Color(0.211765, 0.239216, 0.321569, 1)

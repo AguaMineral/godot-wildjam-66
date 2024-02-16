@@ -1,32 +1,29 @@
-[gd_scene load_steps=15 format=3 uid="uid://h5s0aae2ff5k"]
+[gd_scene load_steps=14 format=3 uid="uid://h5s0aae2ff5k"]
 
 [ext_resource type="Script" path="res://test/test_scene.gd" id="1_4minq"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_qhm67"]
-[ext_resource type="PackedScene" uid="uid://cklqhig5f0njo" path="res://game_components/interact_area/interact_area.tscn" id="3_nql3f"]
 [ext_resource type="PackedScene" uid="uid://b8kyamlltpxko" path="res://player/player.tscn" id="3_nuxtl"]
 [ext_resource type="PackedScene" uid="uid://c44qjrc364yxo" path="res://puzzlePieces/turret.tscn" id="4_0du5l"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2D.gd" id="4_7ctfj"]
 [ext_resource type="PackedScene" uid="uid://mbwj5ig1s3x7" path="res://test/test_scene_2.tscn" id="4_w6dub"]
-[ext_resource type="Texture2D" uid="uid://cn22f80d46mo1" path="res://assets/Witch.png" id="6_by3od"]
+[ext_resource type="PackedScene" uid="uid://bnx4nfv2l1hgr" path="res://bruja/witch.tscn" id="7_2rvfl"]
 [ext_resource type="TileSet" uid="uid://coy7p6w7ufubt" path="res://assets/MytileSet.tres" id="7_gwymt"]
 [ext_resource type="PackedScene" uid="uid://dt278af587n8f" path="res://puzzlePieces/exit_door.tscn" id="7_kjku7"]
 [ext_resource type="PackedScene" uid="uid://uvp3ycuekgkg" path="res://puzzlePieces/inmovable_object.tscn" id="8_emwdh"]
 [ext_resource type="PackedScene" uid="uid://bejfg2rn3lptj" path="res://puzzlePieces/projectile_rotator.tscn" id="9_lm8j3"]
 [ext_resource type="PackedScene" uid="uid://dfxg5vkuqmmtm" path="res://puzzlePieces/projectile_rotator_down.tscn" id="11_0lvyb"]
 
-[sub_resource type="Environment" id="Environment_vr1f3"]
+[sub_resource type="Environment" id="Environment_aupqe"]
 background_mode = 3
-ambient_light_source = 2
-glow_enabled = true
+glow_strength = 1.39
+glow_bloom = 0.03
 adjustment_enabled = true
-adjustment_brightness = 2.55
+adjustment_contrast = 1.15
+adjustment_saturation = 1.15
 
 [node name="TestScene" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_4minq")
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_vr1f3")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(815, 607)
@@ -76,17 +73,7 @@ next_scene = ExtResource("4_w6dub")
 [node name="Interactibles" type="Node2D" parent="."]
 y_sort_enabled = true
 
-[node name="Witch4" type="Sprite2D" parent="Interactibles"]
-position = Vector2(1201, 646)
-scale = Vector2(0.8, 0.8)
-texture = ExtResource("6_by3od")
-offset = Vector2(0, -160)
-
-[node name="InteractArea" parent="Interactibles/Witch4" instance=ExtResource("3_nql3f")]
-position = Vector2(0, -160)
-interact_label = "Talk To ME"
-interact_type = "dialog_test"
-interact_value = "Hablas con la bruja"
+[node name="Witch4" parent="Interactibles" instance=ExtResource("7_2rvfl")]
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -139,3 +126,6 @@ position = Vector2(768, 448)
 
 [node name="ProjectileRotatorDown" parent="." instance=ExtResource("11_0lvyb")]
 position = Vector2(792, 896)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_aupqe")

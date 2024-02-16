@@ -1,0 +1,69 @@
+[gd_scene load_steps=7 format=3 uid="uid://bnx4nfv2l1hgr"]
+
+[ext_resource type="Texture2D" uid="uid://cn22f80d46mo1" path="res://assets/Witch.png" id="1_dvdcl"]
+[ext_resource type="PackedScene" uid="uid://cklqhig5f0njo" path="res://game_components/interact_area/interact_area.tscn" id="2_ys3yc"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_hojs2"]
+polygon = PackedVector2Array(-61.25, -51.25, -65, -40, -66.25, -27.5, -62.5, -20, -51.25, -16.25, -36.25, -18.75, -30, -20, -22.5, -22.5, -5, -22.5, 5, -22.5, 13.75, -21.25, 17.5, -21.25, 26.25, -17.5, 38.75, -16.25, 47.5, -16.25, 55, -18.75, 57.5, -26.25, 57.5, -33.75, 52.5, -43.75, 45, -53.75, 28.75, -57.5, 21.25, -55, 7.5, -52.5, -6.25, -52.5, -16.25, -53.75, -22.5, -55, -30, -55, -43.75, -55, -50, -51.25)
+
+[sub_resource type="Animation" id="Animation_p0ya6"]
+resource_name = "witch_idle"
+length = 1.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.8, 0.77), Vector2(0.8, 0.8)]
+}
+
+[sub_resource type="Animation" id="Animation_w5ard"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.8, 0.7)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gaup1"]
+_data = {
+"RESET": SubResource("Animation_w5ard"),
+"witch_idle": SubResource("Animation_p0ya6")
+}
+
+[node name="Witch4" type="Sprite2D"]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(1198, 586)
+scale = Vector2(0.8, 0.7)
+texture = ExtResource("1_dvdcl")
+offset = Vector2(3.75, -85)
+
+[node name="InteractArea" parent="." instance=ExtResource("2_ys3yc")]
+position = Vector2(-6.25, -83.75)
+interact_label = "Talk To ME"
+interact_type = "dialog_test"
+interact_value = "Hablas con la bruja"
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+position = Vector2(5, 77.5)
+occluder = SubResource("OccluderPolygon2D_hojs2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_gaup1")
+}
+autoplay = "witch_idle"
