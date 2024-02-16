@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://b8kyamlltpxko"]
+[gd_scene load_steps=10 format=3 uid="uid://b8kyamlltpxko"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_h58sk"]
 [ext_resource type="Texture2D" uid="uid://cbt52eojf2o7p" path="res://assets/joni.png" id="2_tjeu8"]
+[ext_resource type="Texture2D" uid="uid://d2no5lqxpxlgt" path="res://assets/popintLightTexture/2d_lights_and_shadows_neutral_point_light.webp" id="3_vkyjd"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y78v5"]
 radius = 37.0
@@ -118,6 +119,12 @@ libraries = {
 autoplay = "player_walking"
 next/player_walking = &"player_idle"
 blend_times = [&"player_walking", &"player_boing", 0.5, &"player_boing", &"player_walking", 0.5]
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(0, -70)
+color = Color(1, 0.768627, 1, 1)
+texture = ExtResource("3_vkyjd")
+texture_scale = 1.3
 
 [connection signal="area_entered" from="InteractionComponents/InteractionArea" to="." method="_on_interaction_area_area_entered"]
 [connection signal="area_exited" from="InteractionComponents/InteractionArea" to="." method="_on_interaction_area_area_exited"]

@@ -12,7 +12,7 @@ script = ExtResource("1_gngcy")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_gc5g2")
 region_enabled = true
-region_rect = Rect2(0, 128, 128, 128)
+region_rect = Rect2(128, 128, 128, 128)
 
 [node name="Area2D" type="Area2D" parent="." groups=["ExitDoor"]]
 collision_layer = 4

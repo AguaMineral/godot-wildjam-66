@@ -27,7 +27,9 @@ interact_label = "Push"
 interact_type = "move_object"
 interaction_parent = NodePath("../MoveGridObjectComponent")
 
-[node name="MoveGridObjectComponent" parent="." node_paths=PackedStringArray("object_to_move") instance=ExtResource("4_e5sxo")]
+[node name="MoveGridObjectComponent" parent="." node_paths=PackedStringArray("object_to_move", "shooterComp") instance=ExtResource("4_e5sxo")]
 object_to_move = NodePath("..")
+shooterComp = NodePath("../ShooterComponent")
 
-[node name="ShooterComponent" parent="." instance=ExtResource("5_lry1f")]
+[node name="ShooterComponent" parent="." node_paths=PackedStringArray("moveGridComp") instance=ExtResource("5_lry1f")]
+moveGridComp = NodePath("../MoveGridObjectComponent")

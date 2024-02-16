@@ -1,5 +1,7 @@
 class_name MoveGridObjectComp extends Node2D
 
+signal enable_shooter
+
 @onready var ray_cast_down = $RayCastDown
 @onready var ray_cast_lef = $RayCastLef
 @onready var ray_cast_right = $RayCastRight
@@ -17,15 +19,18 @@ class_name MoveGridObjectComp extends Node2D
 @onready var ray_cast_lef_2 = $RayCastLef2
 
 @export var object_to_move : Node2D
+@export var shooterComp : Node
 
 var move_dir = Vector2.ZERO
 var tile_size = 128
 var animation_speed = 3
 var moving = false
+var using_shooter = false
 
 func _ready():
 	object_to_move.position = object_to_move.position.snapped(Vector2.ONE * tile_size)
 	object_to_move.position += Vector2.ONE * tile_size/2
+	using_shooter = shooterComp != null
 
 func _physics_process(delta):
 	set_move_direction()
@@ -46,6 +51,9 @@ func set_move_direction():
 	
 	#hit with env
 	var ray_right_hit_env = ray_cast_right_2.is_colliding()
+	if using_shooter:
+		var objCollided = ray_cast_right_2.get_collider()
+		
 	var ray_left_hit_env = ray_cast_lef_2.is_colliding()
 	var ray_down_hit_env = ray_cast_down_2.is_colliding()
 	var ray_up_hit_env = ray_cast_up_2.is_colliding()

@@ -9,9 +9,9 @@
 "Mood 1": {
 "mode": 0,
 "name": "Mood 1",
-"pitch_base": 3.2,
+"pitch_base": 4.0,
 "pitch_variance": 0.5,
-"skip_characters": 2.0,
+"skip_characters": 3.0,
 "sound_path": "res://assets/sounds/Single_Low_O_No_Reverb_v1_wav.wav",
 "volume_base": 0.0,
 "volume_variance": 0.0
