@@ -23,3 +23,5 @@ func _on_area_2d_area_entered(area):
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("environment"):
 		queue_free()
+	if body.is_in_group("Player"):
+		GameManager.player_projectile_hit.emit(global_position.y)

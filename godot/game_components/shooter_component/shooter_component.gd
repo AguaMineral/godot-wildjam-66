@@ -13,8 +13,3 @@ func shoot():
 	b.transform = transform
 	#TODO descomentar cuando no haga falta cambiar el tamaño de la bala
 	b.scale = Vector2(0.2,0.2)
-
-
-func _on_area_2d_body_entered(body):
-	if body.is_in_group("Player"):
-		GameManager.player_projectile_hit.emit(global_position.y)

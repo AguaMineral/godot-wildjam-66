@@ -84,7 +84,10 @@ func execute_interaction():
 			"move_object":
 				if current_interaction.interaction_parent != null:
 					if current_interaction.interaction_parent.has_method("move_object"):
-						current_interaction.interaction_parent.move_object()
+						var result = await current_interaction.interaction_parent.move_object()
+						if result == 0 and all_interactions.size() > 1:
+							current_interaction = all_interactions[1]
+							current_interaction.interaction_parent.move_object()
 
 func _on_player_hit(y_coord : float):
 	hit(y_coord)
@@ -92,11 +95,12 @@ func _on_player_hit(y_coord : float):
 func hit(y_coord : float):
 	animation_player.stop()
 	animation_player.play("player_boing")
-	if y_coord >= global_position.y:
-		knockback = Vector2.UP * 2000
-	else:
-		knockback = Vector2.DOWN * 2000
+	#if y_coord > global_position.y:
+		#knockback = Vector2.UP * 2000
+	#elif y_coord < global_position.y:
+		#knockback = Vector2.DOWN * 2000
+	print(knockback)
 	knockback_timer.start()
-	#knockback = -velocity.normalized() * 2000
+	knockback = -velocity.normalized() * 2000
 	#if abs(knockback) == Vector2.ZERO:
 		#pass

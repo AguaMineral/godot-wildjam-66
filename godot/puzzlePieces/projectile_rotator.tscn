@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=3 uid="uid://bejfg2rn3lptj"]
+
+[ext_resource type="Script" path="res://puzzlePieces/projectile_rotator.gd" id="1_b6wjn"]
+[ext_resource type="Texture2D" uid="uid://dmelj2qgr8w7k" path="res://icon.svg" id="1_hxhfx"]
+[ext_resource type="PackedScene" uid="uid://b736xhqookift" path="res://game_components/shooter_component/rotator_projectile.tscn" id="2_2ll0m"]
+[ext_resource type="PackedScene" uid="uid://gtncp4o70a1s" path="res://game_components/MoveGridobjectComponent/move_grid_object_component.tscn" id="3_a76kn"]
+[ext_resource type="PackedScene" uid="uid://cklqhig5f0njo" path="res://game_components/interact_area/interact_area.tscn" id="4_pwncw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rb83a"]
+size = Vector2(123, 101)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y1vwg"]
+size = Vector2(136, 140)
+
+[node name="ProjectileRotator" type="StaticBody2D" groups=["environment"]]
+collision_layer = 96
+collision_mask = 8
+script = ExtResource("1_b6wjn")
+Bullet = ExtResource("2_2ll0m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 11.5)
+shape = SubResource("RectangleShape2D_rb83a")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.0784314, 1, 0.176471, 1)
+texture = ExtResource("1_hxhfx")
+
+[node name="MoveGridObjectComponent" parent="." node_paths=PackedStringArray("object_to_move") instance=ExtResource("3_a76kn")]
+object_to_move = NodePath("..")
+
+[node name="InteractArea" parent="." node_paths=PackedStringArray("interaction_parent") instance=ExtResource("4_pwncw")]
+interact_label = "Push"
+interact_type = "move_object"
+interaction_parent = NodePath("../MoveGridObjectComponent")
+
+[node name="BulletDetectionArea" type="Area2D" parent="."]
+collision_layer = 64
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BulletDetectionArea"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_y1vwg")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+rotation = -0.785398
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+autostart = true
+
+[connection signal="area_entered" from="BulletDetectionArea" to="." method="_on_area_2d_area_entered"]

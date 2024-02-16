@@ -150,6 +150,7 @@ locale/translations=PackedStringArray("res://i18n/translation.de.translation", "
 2d_physics/layer_4="player"
 2d_physics/layer_5="projectile"
 2d_physics/layer_6="movableEntities"
+2d_physics/layer_7="rotators"
 
 [rendering]
 

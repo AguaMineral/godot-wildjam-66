@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bf8vei134q8wv" path="res://game_components/shooter_component/shooter_component.tscn" id="5_lry1f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mu44r"]
-size = Vector2(126, 86)
+size = Vector2(126, 99)
 
 [node name="Turret" type="StaticBody2D"]
 collision_layer = 32
@@ -19,7 +19,7 @@ modulate = Color(1, 0.47451, 1, 1)
 texture = ExtResource("1_xnpjh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 20)
+position = Vector2(0, 13.5)
 shape = SubResource("RectangleShape2D_mu44r")
 
 [node name="InteractArea" parent="." node_paths=PackedStringArray("interaction_parent") instance=ExtResource("3_ucajd")]

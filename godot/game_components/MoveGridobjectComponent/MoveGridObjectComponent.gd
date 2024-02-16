@@ -59,11 +59,15 @@ func set_move_direction():
 	elif (ray_left_hit or ray_left_hit_2) and not ray_right_hit_env:
 		move_dir = Vector2.RIGHT
 
-func move_object() -> void:
+func move_object() -> int:
 	if moving:
-		return
+		return -1
 	var tween = create_tween()
 	tween.tween_property(object_to_move, "position", object_to_move.position + move_dir * tile_size, 1.0/animation_speed ).set_trans(Tween.TRANS_SINE)
 	moving = true
 	await tween.finished
 	moving = false
+	if move_dir == Vector2.ZERO:
+		return 0
+	else:
+		return 1
