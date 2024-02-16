@@ -9,8 +9,8 @@
 "Mood 1": {
 "mode": 0,
 "name": "Mood 1",
-"pitch_base": 4.0,
-"pitch_variance": 1.0,
+"pitch_base": 3.5,
+"pitch_variance": 0.5,
 "skip_characters": 1.0,
 "sound_path": "res://assets/sounds/Single_Low_O_No_Reverb_v1_wav.wav",
 "volume_base": 0.0,
@@ -34,7 +34,7 @@
 "display_name": "witch",
 "mirror": false,
 "nicknames": [""],
-"offset": Vector2(0, 0),
+"offset": Vector2(0, -160),
 "portraits": {
 "Chiquillas": {
 "export_overrides": {
@@ -97,7 +97,7 @@
 },
 "ignore_char_scale": false,
 "mirror": false,
-"offset": Vector2(200, -160),
+"offset": Vector2(0, 0),
 "scale": 0.2,
 "scene": "",
 "sound_mood": "Mood 1"

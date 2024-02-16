@@ -1,8 +1,14 @@
-join witch (witch_potrait) 1
+join witch (witch_potrait) 2
 witch (witch_potrait): HIHIHIHIHIAISHIAHSIIHIIHIAAJAJAJAJAJAJAJAIAJXAXAXAXAXAXAAX
 witch (witch_potrait): How you doin??????
-join player (joni_potrait) 3
-player (joni_potrait): good \:D
 leave witch
+join player (joni_potrait) 2
+player (joni_potrait): good \:D asd asdasdas  aasdasadsdasdasd asdas dasd asd asd
+leave player
+join witch (witch_potrait) 2
+witch (witch_potrait): HIHIHIHIHIAISHIAHSIIHIIHIAAJAJAJAJAJAJAJAIAJXAXAXAXAXAXAAX
+leave witch
+join player (joni_potrait) 2
+player (joni_potrait): good \:D asd asdasdas  aasdasadsdasdasd asdas dasd asd asd
 leave player
 [end_timeline]
