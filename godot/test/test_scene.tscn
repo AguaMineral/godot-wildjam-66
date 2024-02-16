@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://h5s0aae2ff5k"]
+[gd_scene load_steps=13 format=3 uid="uid://h5s0aae2ff5k"]
 
 [ext_resource type="Script" path="res://test/test_scene.gd" id="1_4minq"]
 [ext_resource type="PackedScene" uid="uid://cklqhig5f0njo" path="res://game_components/interact_area/interact_area.tscn" id="3_nql3f"]
 [ext_resource type="PackedScene" uid="uid://b8kyamlltpxko" path="res://player/player.tscn" id="3_nuxtl"]
 [ext_resource type="PackedScene" uid="uid://c44qjrc364yxo" path="res://puzzlePieces/turret.tscn" id="4_0du5l"]
+[ext_resource type="PackedScene" uid="uid://mbwj5ig1s3x7" path="res://test/test_scene_2.tscn" id="4_w6dub"]
 [ext_resource type="Texture2D" uid="uid://de37h2wjl7moh" path="res://assets/TileSet128.png" id="5_5glqr"]
 [ext_resource type="Texture2D" uid="uid://cn22f80d46mo1" path="res://assets/Witch.png" id="6_by3od"]
 [ext_resource type="PackedScene" uid="uid://dt278af587n8f" path="res://puzzlePieces/exit_door.tscn" id="7_kjku7"]
@@ -28,7 +29,7 @@ position = Vector2(1152, 384)
 
 [node name="ExitDoor" parent="." instance=ExtResource("7_kjku7")]
 position = Vector2(64, 448)
-next_scene = ExtResource("3_nuxtl")
+next_scene = ExtResource("4_w6dub")
 
 [node name="Interactibles" type="Node2D" parent="."]
 y_sort_enabled = true
