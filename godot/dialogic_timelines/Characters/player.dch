@@ -21,9 +21,9 @@
 },
 "default_portrait": "joni_potrait",
 "description": "",
-"display_name": "player",
+"display_name": "Jowish",
 "mirror": false,
-"nicknames": [""],
+"nicknames": ["Jowish"],
 "offset": Vector2(0, -160),
 "portraits": {
 "Chiquillas": {

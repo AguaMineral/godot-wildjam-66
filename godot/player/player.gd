@@ -27,6 +27,7 @@ func save_data() -> Dictionary:
 func _ready():
 	interact_label.text = ""
 	GameManager.player_projectile_hit.connect(_on_player_hit)
+	GameManager.player_projectile_vertical_hit.connect(_on_player_vertical_hit)
 
 func _physics_process(delta):
 	handle_movement()
@@ -92,15 +93,27 @@ func execute_interaction():
 func _on_player_hit(y_coord : float):
 	hit(y_coord)
 
+func _on_player_vertical_hit(x_coord : float):
+	hit_vertical(x_coord)
+
 func hit(y_coord : float):
 	animation_player.stop()
 	animation_player.play("player_boing")
-	#if y_coord > global_position.y:
-		#knockback = Vector2.UP * 2000
-	#elif y_coord < global_position.y:
-		#knockback = Vector2.DOWN * 2000
+	if y_coord > global_position.y:
+		knockback = Vector2.UP * 2000
+	elif y_coord < global_position.y:
+		knockback = Vector2.DOWN * 2000
 	print(knockback)
 	knockback_timer.start()
-	knockback = -velocity.normalized() * 2000
-	#if abs(knockback) == Vector2.ZERO:
-		#pass
+	#knockback = -velocity.normalized() * 2000
+
+func hit_vertical(x_coord : float):
+	animation_player.stop()
+	animation_player.play("player_boing")
+	if x_coord > global_position.x:
+		knockback = Vector2.LEFT * 2000
+	elif x_coord < global_position.x:
+		knockback = Vector2.RIGHT * 2000
+	print(knockback)
+	knockback_timer.start()
+	#knockback = -velocity.normalized() * 2000

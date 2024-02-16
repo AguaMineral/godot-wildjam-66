@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://b736xhqookift"]
 
 [ext_resource type="Texture2D" uid="uid://dmelj2qgr8w7k" path="res://icon.svg" id="1_u3koa"]
-[ext_resource type="Script" path="res://game_components/shooter_component/projectile.gd" id="2_ajgvk"]
+[ext_resource type="Script" path="res://game_components/shooter_component/rotator_projectile.gd" id="2_fchqn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xv6jd"]
 radius = 20.0
@@ -9,7 +9,7 @@ radius = 20.0
 [node name="RotatorProjectile" type="Sprite2D" groups=["projectile"]]
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("1_u3koa")
-script = ExtResource("2_ajgvk")
+script = ExtResource("2_fchqn")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0

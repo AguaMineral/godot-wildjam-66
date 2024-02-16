@@ -31,9 +31,9 @@
 },
 "default_portrait": "witch_potrait",
 "description": "",
-"display_name": "witch",
+"display_name": "Bea the witch",
 "mirror": false,
-"nicknames": [""],
+"nicknames": ["Bea the witch"],
 "offset": Vector2(0, -160),
 "portraits": {
 "Chiquillas": {
