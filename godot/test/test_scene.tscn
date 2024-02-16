@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://h5s0aae2ff5k"]
+[gd_scene load_steps=11 format=3 uid="uid://h5s0aae2ff5k"]
 
 [ext_resource type="Script" path="res://test/test_scene.gd" id="1_4minq"]
 [ext_resource type="PackedScene" uid="uid://cklqhig5f0njo" path="res://game_components/interact_area/interact_area.tscn" id="3_nql3f"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://de37h2wjl7moh" path="res://assets/TileSet128.png" id="5_5glqr"]
 [ext_resource type="Texture2D" uid="uid://cn22f80d46mo1" path="res://assets/Witch.png" id="6_by3od"]
 [ext_resource type="PackedScene" uid="uid://dt278af587n8f" path="res://puzzlePieces/exit_door.tscn" id="7_kjku7"]
+[ext_resource type="PackedScene" uid="uid://uvp3ycuekgkg" path="res://puzzlePieces/inmovable_object.tscn" id="8_emwdh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w8bid"]
 texture = ExtResource("5_5glqr")
@@ -54,3 +55,42 @@ layer_0/tile_data = PackedInt32Array(-131075, 0, 0, -65539, 0, 0, -3, 0, 0, 6553
 [node name="Turret2" parent="." instance=ExtResource("4_0du5l")]
 position = Vector2(960, 704)
 face_left = true
+
+[node name="InmovableObject" parent="." instance=ExtResource("8_emwdh")]
+position = Vector2(320, 320)
+
+[node name="InmovableObject9" parent="." instance=ExtResource("8_emwdh")]
+position = Vector2(320, -193)
+
+[node name="InmovableObject10" parent="." instance=ExtResource("8_emwdh")]
+position = Vector2(320, -320)
+
+[node name="InmovableObject2" parent="." instance=ExtResource("8_emwdh")]
+position = Vector2(320, 187)
+
+[node name="InmovableObject3" parent="." instance=ExtResource("8_emwdh")]
+position = Vector2(320, 579)
+
+[node name="InmovableObject4" parent="." instance=ExtResource("8_emwdh")]
+position = Vector2(320, 704)
+
+[node name="InmovableObject5" parent="." instance=ExtResource("8_emwdh")]
+position = Vector2(320, 831)
+
+[node name="InmovableObject6" parent="." instance=ExtResource("8_emwdh")]
+position = Vector2(320, 960)
+
+[node name="InmovableObject11" parent="." instance=ExtResource("8_emwdh")]
+position = Vector2(320, 1088)
+
+[node name="InmovableObject12" parent="." instance=ExtResource("8_emwdh")]
+position = Vector2(320, 1216)
+
+[node name="InmovableObject13" parent="." instance=ExtResource("8_emwdh")]
+position = Vector2(320, 1216)
+
+[node name="InmovableObject7" parent="." instance=ExtResource("8_emwdh")]
+position = Vector2(320, 67)
+
+[node name="InmovableObject8" parent="." instance=ExtResource("8_emwdh")]
+position = Vector2(320, -57)

@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://game_components/shooter_component/projectile.gd" id="1_wq3lx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xv6jd"]
-radius = 30.4138
+radius = 20.0
 
 [node name="Sprite2D" type="Sprite2D"]
 scale = Vector2(0.2, 0.2)
@@ -17,7 +17,7 @@ one_shot = true
 autostart = true
 
 [node name="Area2D" type="Area2D" parent="."]
-collision_layer = 0
+collision_layer = 16
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
@@ -25,3 +25,4 @@ shape = SubResource("CircleShape2D_xv6jd")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

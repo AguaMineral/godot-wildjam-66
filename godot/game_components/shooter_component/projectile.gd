@@ -18,3 +18,8 @@ func _on_area_2d_area_entered(area):
 		queue_free()
 		print("door hit")
 		area.get_parent().hit_door()
+
+
+func _on_area_2d_body_entered(body):
+	if body.is_in_group("environment"):
+		queue_free()
