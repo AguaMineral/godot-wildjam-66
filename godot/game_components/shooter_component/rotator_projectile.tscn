@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bq5bilbxetsc2" path="res://effecs/cpu_particles_2d.tscn" id="4_0tcxn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lst0i"]
-size = Vector2(120, 20)
+size = Vector2(155, 20)
 
 [node name="RotatorProjectile" type="Sprite2D" groups=["projectile"]]
 scale = Vector2(0.2, 0.2)
@@ -23,7 +23,7 @@ collision_layer = 16
 collision_mask = 12
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-2.38419e-06, 5)
+position = Vector2(65, 5)
 scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_lst0i")
 
@@ -35,6 +35,7 @@ texture = ExtResource("3_efe3j")
 
 [node name="CPUParticles2D" parent="." instance=ExtResource("4_0tcxn")]
 z_index = 1
+position = Vector2(5, 0)
 amount = 5
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
