@@ -1,8 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://dfxg5vkuqmmtm"]
+[gd_scene load_steps=9 format=3 uid="uid://dfxg5vkuqmmtm"]
 
 [ext_resource type="Script" path="res://puzzlePieces/projectile_rotator.gd" id="1_uqnd6"]
 [ext_resource type="PackedScene" uid="uid://b736xhqookift" path="res://game_components/shooter_component/rotator_projectile.tscn" id="2_a6hbk"]
-[ext_resource type="Texture2D" uid="uid://dmelj2qgr8w7k" path="res://icon.svg" id="3_r1bio"]
+[ext_resource type="Texture2D" uid="uid://b2iogulxae2r5" path="res://puzzlePieces/rotator_down.png" id="3_s65pk"]
 [ext_resource type="PackedScene" uid="uid://gtncp4o70a1s" path="res://game_components/MoveGridobjectComponent/move_grid_object_component.tscn" id="4_gi3kk"]
 [ext_resource type="PackedScene" uid="uid://cklqhig5f0njo" path="res://game_components/interact_area/interact_area.tscn" id="5_vuwx7"]
 
@@ -11,6 +11,9 @@ size = Vector2(123, 101)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y1vwg"]
 size = Vector2(136, 140)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_fv3mw"]
+polygon = PackedVector2Array(-28, 28, -25, 30, -18, 32, -6, 35, 11, 36, 16, 36, 29, 33, 37, 30, 42, 24, 45, 15, 46, 6, 46, -2, 46, -8, 43, -14, 39, -21, 35, -27, 25, -33, 15, -35, 0, -35, -16, -34, -22, -32, -27, -29, -31, -25, -35, -20, -36, -14, -39, -4, -39, 8, -37, 18, -33, 25)
 
 [node name="ProjectileRotatorDown" type="StaticBody2D" groups=["environment", "rotator"]]
 collision_layer = 96
@@ -23,9 +26,9 @@ position = Vector2(-0.5, 11.5)
 shape = SubResource("RectangleShape2D_rb83a")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0.396078, 0.513726, 0, 1)
-texture = ExtResource("3_r1bio")
-flip_v = true
+light_mask = 4
+visibility_layer = 4
+texture = ExtResource("3_s65pk")
 
 [node name="MoveGridObjectComponent" parent="." node_paths=PackedStringArray("object_to_move") instance=ExtResource("4_gi3kk")]
 object_to_move = NodePath("..")
@@ -50,5 +53,8 @@ rotation = 0.785398
 wait_time = 0.1
 one_shot = true
 autostart = true
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_fv3mw")
 
 [connection signal="area_entered" from="BulletDetectionArea" to="." method="_on_area_2d_area_entered"]

@@ -1,6 +1,6 @@
 extends Sprite2D
 
-@export var speed = 1500
+@export var speed = 750
 @export var facing_right = true
 
 func _physics_process(delta):

@@ -1,14 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://udqjalhye14d"]
+[gd_scene load_steps=5 format=3 uid="uid://udqjalhye14d"]
 
-[ext_resource type="Texture2D" uid="uid://dmelj2qgr8w7k" path="res://icon.svg" id="1_7buvo"]
+[ext_resource type="Texture2D" uid="uid://8l1lr7lyn0at" path="res://puzzlePieces/butterfly.png" id="1_rjxw4"]
 [ext_resource type="Script" path="res://game_components/shooter_component/projectile.gd" id="1_wq3lx"]
+[ext_resource type="Texture2D" uid="uid://d2no5lqxpxlgt" path="res://assets/popintLightTexture/2d_lights_and_shadows_neutral_point_light.webp" id="3_26tab"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xv6jd"]
-radius = 20.0
+radius = 15.0
 
 [node name="Sprite2D" type="Sprite2D" groups=["projectile"]]
 scale = Vector2(0.2, 0.2)
-texture = ExtResource("1_7buvo")
+texture = ExtResource("1_rjxw4")
 script = ExtResource("1_wq3lx")
 
 [node name="Timer" type="Timer" parent="."]
@@ -22,6 +23,12 @@ collision_mask = 76
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_xv6jd")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(1, 0.686275, 0, 1)
+shadow_enabled = true
+shadow_item_cull_mask = 5
+texture = ExtResource("3_26tab")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

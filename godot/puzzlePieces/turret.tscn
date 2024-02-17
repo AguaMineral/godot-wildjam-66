@@ -1,7 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://c44qjrc364yxo"]
+[gd_scene load_steps=8 format=3 uid="uid://c44qjrc364yxo"]
 
-[ext_resource type="Texture2D" uid="uid://dmelj2qgr8w7k" path="res://icon.svg" id="1_xnpjh"]
 [ext_resource type="Script" path="res://puzzlePieces/turret.gd" id="1_yr5t0"]
+[ext_resource type="Texture2D" uid="uid://tpkh75tlqqq7" path="res://puzzlePieces/turret.png" id="2_wlpsy"]
 [ext_resource type="PackedScene" uid="uid://cklqhig5f0njo" path="res://game_components/interact_area/interact_area.tscn" id="3_ucajd"]
 [ext_resource type="PackedScene" uid="uid://gtncp4o70a1s" path="res://game_components/MoveGridobjectComponent/move_grid_object_component.tscn" id="4_e5sxo"]
 [ext_resource type="PackedScene" uid="uid://bf8vei134q8wv" path="res://game_components/shooter_component/shooter_component.tscn" id="5_lry1f"]
@@ -9,14 +9,18 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mu44r"]
 size = Vector2(126, 99)
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_njlqm"]
+polygon = PackedVector2Array(-25, 50, -19, 54, -10, 55, -4, 55, 2, 55, 14, 54, 19, 52, 28, 48, 34, 43, 37, 34, 37, 28, 35, 21, 29, 14, 21, 7, 17, 4, 8, 4, -4, 3, -11, 5, -20, 7, -28, 10, -32, 13, -39, 17, -42, 24, -42, 30, -40, 39, -37, 43, -29, 48)
+
 [node name="Turret" type="StaticBody2D"]
 collision_layer = 32
 collision_mask = 8
 script = ExtResource("1_yr5t0")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(1, 0.47451, 1, 1)
-texture = ExtResource("1_xnpjh")
+light_mask = 4
+visibility_layer = 4
+texture = ExtResource("2_wlpsy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 13.5)
@@ -33,3 +37,6 @@ shooterComp = NodePath("../ShooterComponent")
 
 [node name="ShooterComponent" parent="." node_paths=PackedStringArray("moveGridComp") instance=ExtResource("5_lry1f")]
 moveGridComp = NodePath("../MoveGridObjectComponent")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_njlqm")

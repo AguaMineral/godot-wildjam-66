@@ -19,8 +19,8 @@ func shoot():
 		marker_2d.add_child(b)
 		timer.start()
 		b.transform = marker_2d.transform
-	#TODO descomentar cuando no haga falta cambiar el tamaño de la bala
-		b.scale = Vector2(0.2,0.2)
+	##TODO descomentar cuando no haga falta cambiar el tamaño de la bala
+		#b.scale = Vector2(0.2,0.2)
 
 func is_shooting():
 	return timer.time_left > 0.0

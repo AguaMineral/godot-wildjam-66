@@ -19,7 +19,7 @@ func shoot():
 	b.facing_right = facing_right
 	b.transform = transform
 	#TODO descomentar cuando no haga falta cambiar el tamaño de la bala
-	b.scale = Vector2(0.2,0.2)
+	#b.scale = Vector2(0.2,0.2)
 
 func _on_shooter_enabled():
 	disabled = false

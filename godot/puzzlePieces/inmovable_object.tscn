@@ -1,18 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://uvp3ycuekgkg"]
+[gd_scene load_steps=4 format=3 uid="uid://uvp3ycuekgkg"]
 
-[ext_resource type="Texture2D" uid="uid://dmelj2qgr8w7k" path="res://icon.svg" id="1_hh8ky"]
+[ext_resource type="Texture2D" uid="uid://dqfoanh32p767" path="res://puzzlePieces/inamovible.png" id="1_pp88m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aaevg"]
 size = Vector2(126, 92)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_h306v"]
+polygon = PackedVector2Array(13, 60, 28, 60, 47, 60, 52, 57, 55, 50, 53, 41, 53, 30, 51, 24, 47, 15, 34, 5, 22, 3, -3, 3, -15, 3, -37, 10, -44, 19, -49, 27, -50, 42, -52, 52, -48, 59, -31, 61, -10, 61)
 
 [node name="InmovableObject" type="StaticBody2D" groups=["environment"]]
 collision_layer = 4
 collision_mask = 28
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0.392157, 0.392157, 0.392157, 1)
-texture = ExtResource("1_hh8ky")
+light_mask = 4
+visibility_layer = 4
+texture = ExtResource("1_pp88m")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 18)
 shape = SubResource("RectangleShape2D_aaevg")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_h306v")
