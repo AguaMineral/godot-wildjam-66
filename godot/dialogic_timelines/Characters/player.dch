@@ -1,7 +1,7 @@
 {
 "@path": "res://addons/dialogic/Resources/character.gd",
 "@subpath": NodePath(""),
-"_translation_id": "",
+"_translation_id": "16",
 "color": Color(1, 0.709804, 0.870588, 1),
 "custom_info": {
 "sound_mood_default": "",
@@ -13,8 +13,8 @@
 "pitch_variance": 0.5,
 "skip_characters": 3.0,
 "sound_path": "res://assets/sounds/Single_Low_O_No_Reverb_v1_wav.wav",
-"volume_base": 0.0,
-"volume_variance": 0.0
+"volume_base": -10.0,
+"volume_variance": 0.5
 }
 },
 "style": ""

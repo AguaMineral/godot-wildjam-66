@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://c58aekgiyeftw"]
+
+[ext_resource type="Shader" path="res://effecs/vignette.gdshader" id="1_gfybx"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rvhs7"]
+shader = ExtResource("1_gfybx")
+shader_parameter/vignette_intensity = 0.7
+shader_parameter/vignette_opacity = 1.0
+shader_parameter/vignette_rgb = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="ColorRect"]
+material = SubResource("ShaderMaterial_rvhs7")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)

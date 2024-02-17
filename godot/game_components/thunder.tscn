@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://d2yyil8fljk4b"]
+
+[ext_resource type="AudioStream" uid="uid://d3b6t5jaxjrdx" path="res://assets/sounds/natural-thunder-113219.mp3" id="1_stswi"]
+
+[node name="Thunder" type="AudioStreamPlayer"]
+stream = ExtResource("1_stswi")
+volume_db = -5.0
+autoplay = true
+bus = &"Sound"

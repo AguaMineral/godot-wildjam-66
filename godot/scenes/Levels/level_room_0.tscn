@@ -1,0 +1,183 @@
+[gd_scene load_steps=16 format=3 uid="uid://cuilusdhr1fmn"]
+
+[ext_resource type="Texture2D" uid="uid://b1tthvj34lt1a" path="res://assets/IMG_4817.PNG" id="1_kq371"]
+[ext_resource type="Script" path="res://scenes/Levels/level_room_0.gd" id="1_qy165"]
+[ext_resource type="PackedScene" uid="uid://b8kyamlltpxko" path="res://player/player.tscn" id="2_0epww"]
+[ext_resource type="PackedScene" uid="uid://bnx4nfv2l1hgr" path="res://bruja/witch.tscn" id="3_rulef"]
+[ext_resource type="PackedScene" uid="uid://40afq3mpw7ix" path="res://game_components/world_environment.tscn" id="4_usvxs"]
+[ext_resource type="PackedScene" uid="uid://chjye2kl16g28" path="res://effecs/fog.tscn" id="5_rw1u7"]
+[ext_resource type="PackedScene" uid="uid://c58aekgiyeftw" path="res://game_components/vignette.tscn" id="6_n0yj0"]
+[ext_resource type="PackedScene" uid="uid://dhc5jc3m08lew" path="res://game_components/directional_light_2d.tscn" id="7_erpcy"]
+[ext_resource type="PackedScene" uid="uid://bq5bilbxetsc2" path="res://effecs/cpu_particles_2d.tscn" id="9_vbgkx"]
+[ext_resource type="AudioStream" uid="uid://u82ab763iqsl" path="res://assets/sounds/bell-bowl-g-ish-74001.mp3" id="10_71f5t"]
+[ext_resource type="PackedScene" uid="uid://bku0ytg1mjig6" path="res://game_components/rain.tscn" id="11_ukd7e"]
+
+[sub_resource type="Animation" id="Animation_3vv8c"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PointLight2D:energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../UI/ParallaxLayer/ParallaxLayer/ColorRect:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0.937255, 0.984314, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_6ggim"]
+resource_name = "witch_fade_in"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PointLight2D:energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_37pbv"]
+resource_name = "fog_fade_in"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../UI/ParallaxLayer/ParallaxLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0.937255, 0.984314, 0), Color(0, 0.937255, 0.984314, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_62a8m"]
+_data = {
+"RESET": SubResource("Animation_3vv8c"),
+"fog_fade_in": SubResource("Animation_37pbv"),
+"witch_fade_in": SubResource("Animation_6ggim")
+}
+
+[node name="LevelRoom0" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_qy165")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="ParallaxLayer" parent="UI" instance=ExtResource("5_rw1u7")]
+
+[node name="ColorRect" parent="UI/ParallaxLayer/ParallaxLayer" index="0"]
+color = Color(0, 0.937255, 0.984314, 1)
+
+[node name="TextureRect" parent="UI" instance=ExtResource("6_n0yj0")]
+
+[node name="CPUParticles2D" parent="." instance=ExtResource("9_vbgkx")]
+z_index = 3
+position = Vector2(1199, 713)
+amount = 100
+lifetime = 5.0
+
+[node name="PointLight2D" parent="CPUParticles2D" index="0"]
+energy = 1.0
+texture_scale = 1.0
+
+[node name="Room" type="Sprite2D" parent="."]
+texture = ExtResource("1_kq371")
+centered = false
+
+[node name="Player" parent="." instance=ExtResource("2_0epww")]
+position = Vector2(1187, 334)
+
+[node name="Witch" parent="." instance=ExtResource("3_rulef")]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(1200, 774)
+
+[node name="InteractArea" parent="Witch" index="1"]
+interact_type = "dialog_witch_room0_0"
+
+[node name="PointLight2D" parent="Witch" index="4"]
+color = Color(0.694118, 0.407843, 1, 1)
+energy = 0.0
+
+[node name="WorldEnvironment" parent="." instance=ExtResource("4_usvxs")]
+
+[node name="DirectionalLight2D" parent="." instance=ExtResource("7_erpcy")]
+
+[node name="InitSceneTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+autostart = true
+
+[node name="ParticleWitchAppearTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="WitchAppearTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Witch")
+libraries = {
+"": SubResource("AnimationLibrary_62a8m")
+}
+
+[node name="WitchAppearSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_71f5t")
+volume_db = -5.0
+bus = &"Sound"
+
+[node name="Rain" parent="." instance=ExtResource("11_ukd7e")]
+
+[connection signal="timeout" from="InitSceneTimer" to="." method="_on_init_scene_timer_timeout"]
+[connection signal="timeout" from="ParticleWitchAppearTimer" to="." method="_on_particle_witch_appear_timer_timeout"]
+[connection signal="timeout" from="WitchAppearTimer" to="." method="_on_witch_appear_timer_timeout"]
+
+[editable path="UI/ParallaxLayer"]
+[editable path="CPUParticles2D"]
+[editable path="Player"]
+[editable path="Witch"]

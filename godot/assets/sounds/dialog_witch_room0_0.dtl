@@ -1,0 +1,53 @@
+[signal arg="dialog_started"]
+join player (joni_potrait) 2
+player: What the fuck?! Who are you? And what the fuck just happened with those butterflies?!!!!
+leave player
+join witch (witch_potrait) 2
+witch: AHAHAHAHHAHAHAHAAHHAHA!!!!! AHAHHAHAHAHAHHAHHAHHAH!!!!
+witch: Chill, chill. I'm Bea....... a..... friend
+witch:  The butterflies are just a side effect
+leave witch
+join player (joni_potrait) 2
+player: Hey Bea......
+player: How the hell did you just appear like that and why the fuck are you here?!!!
+leave player
+join witch (witch_potrait) 2
+witch: AHAHAHAHAHHAHAHAHAHAHAHAHAHHAHAHAHHAAHHAHAHHAAHHAHAHA!!!!
+witch: So..... who were you talking to earlier anyway?
+leave witch
+join player (joni_potrait) 2
+player (joni_potrait): Why the fuck do you care??!!
+player: Wait....
+player: Since when have you been listening??
+player: Are you a fucking  stalker??!!
+leave player
+join witch (witch_potrait) 2
+witch: As to what concern it is to you how long I've been listening? Shut up and listen to me you piece of shit.
+leave witch [animation="Instant In Or Out"]
+join player (joni_potrait) 2
+player: That ramen I ate this afternoon was seriously expired... I think I'm trippin
+player: Why the fuck would some Madoka Magica cosplayer and home invader tell me to shut up in my own-...
+leave player [animation="Instant In Or Out"]
+join witch (witch_potrait) 2
+witch: Shhhhhhhhhhhhhhhhhhhhhh....
+witch: Well, my dear, I'm quite aware that you're a spineless creature who wouldn't venture out even if your abode were ablaze. Now, tell me, how long has it been since you've seen the sun's rays?
+leave witch [animation="Instant In Or Out"]
+join player (joni_potrait) 2
+player: .......................................
+leave player [animation="Instant In Or Out"]
+join witch (witch_potrait) 2
+witch: You truly disgust me... abandoning your friends because you can't be bothered to step outside? A complete social waste....
+witch: And now you're going to learn what it's really like to be locked up.
+witch: AHAHAHHAHAHA-...
+leave witch [animation="Instant In Or Out"]
+join player (joni_potrait) 2
+player: Shut up you bitch!!!
+player: Thast enough!!!
+player: I'm calling the cops
+leave player
+join witch (witch_potrait) 2
+witch: HAHAHAHAHHAHAHAHAHAHAHHAA!!!
+witch: Try it
+[signal arg="dialog_ended"]
+[signal arg="dialog_witch_room0_0_ended"]
+[end_timeline]

@@ -13,7 +13,7 @@ extends CharacterBody2D
 var knockback : Vector2 = Vector2(0,0)
 var knockbackTween
 var in_knockback = false
-
+var disable_input = false
 # specify in nodes to load data
 # from save game for this node
 func load_data(data:Dictionary) -> void:
@@ -30,33 +30,35 @@ func _ready():
 	interact_label.text = ""
 	GameManager.player_projectile_hit.connect(_on_player_hit)
 	GameManager.player_projectile_vertical_hit.connect(_on_player_vertical_hit)
+	Dialogic.signal_event.connect(_on_dialogic_signal)
 
 func _physics_process(delta):
 	handle_movement()
 	handle_input()
 
 func handle_movement():
-	var direction = Vector2.ZERO
-	#if (knockback == Vector2.ZERO):
-	if(knockback_timer.time_left <= 0.0):
-		direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
-	
-	if direction == Vector2.ZERO:
-		animation_player.play("player_idle")
-	
-	if direction != Vector2.ZERO:
-		if direction.x < 0:
-			sprite_2d.flip_h = false
-		elif direction.x > 0:
-			sprite_2d.flip_h = true
-	elif knockback_timer.time_left <= 0.0:
-		animation_player.play("player_walking")
-	velocity = (direction * speed) + knockback
-	knockback = lerp(knockback, Vector2.ZERO, 0.2)
-	move_and_slide()
+	if not disable_input:
+		var direction = Vector2.ZERO
+		#if (knockback == Vector2.ZERO):
+		if(knockback_timer.time_left <= 0.0):
+			direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+		
+		if direction == Vector2.ZERO:
+			animation_player.play("player_idle")
+		
+		if direction != Vector2.ZERO:
+			if direction.x < 0:
+				sprite_2d.flip_h = false
+			elif direction.x > 0:
+				sprite_2d.flip_h = true
+		elif knockback_timer.time_left <= 0.0:
+			animation_player.play("player_walking")
+		velocity = (direction * speed) + knockback
+		knockback = lerp(knockback, Vector2.ZERO, 0.2)
+		move_and_slide()
 
 func handle_input():
-	if Input.is_action_just_pressed("interact"):
+	if Input.is_action_just_pressed("interact") and not disable_input:
 		execute_interaction()
 	if Input.is_action_just_pressed("restart_level"):
 		get_tree().reload_current_scene()
@@ -94,6 +96,12 @@ func execute_interaction():
 						if result == 0 and all_interactions.size() > 1:
 							current_interaction = all_interactions[1]
 							current_interaction.interaction_parent.move_object()
+			"dialog_witch_room0_0": 
+				if Dialogic.current_timeline != null:
+					return
+				else:
+					Dialogic.start("dialog_witch_room0_0")
+					get_viewport().set_input_as_handled()
 
 func _on_player_hit(y_coord : float):
 	hit(y_coord)
@@ -126,3 +134,11 @@ func hit_vertical(x_coord : float):
 func play_footstep():
 	audio_stream_player_2d.pitch_scale = randf_range(0.8, 1.2)
 	audio_stream_player_2d.play()
+
+func _on_dialogic_signal(argument:String):
+	if argument == "dialog_started":
+		disable_input = true
+		if animation_player.is_playing():
+			animation_player.stop()
+	elif argument == "dialog_ended":
+		disable_input = false

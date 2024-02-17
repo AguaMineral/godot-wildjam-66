@@ -10,31 +10,15 @@
 [ext_resource type="TileSet" uid="uid://coy7p6w7ufubt" path="res://assets/MytileSet.tres" id="7_gwymt"]
 [ext_resource type="PackedScene" uid="uid://dt278af587n8f" path="res://puzzlePieces/exit_door.tscn" id="7_kjku7"]
 [ext_resource type="PackedScene" uid="uid://uvp3ycuekgkg" path="res://puzzlePieces/inmovable_object.tscn" id="8_emwdh"]
-[ext_resource type="Shader" path="res://effecs/vignette.gdshader" id="8_o1qnq"]
+[ext_resource type="PackedScene" uid="uid://c58aekgiyeftw" path="res://game_components/vignette.tscn" id="9_jw2xp"]
 [ext_resource type="PackedScene" uid="uid://bejfg2rn3lptj" path="res://puzzlePieces/projectile_rotator.tscn" id="9_lm8j3"]
 [ext_resource type="PackedScene" uid="uid://dfxg5vkuqmmtm" path="res://puzzlePieces/projectile_rotator_down.tscn" id="11_0lvyb"]
 [ext_resource type="PackedScene" uid="uid://chjye2kl16g28" path="res://effecs/fog.tscn" id="13_2kb21"]
-[ext_resource type="AudioStream" uid="uid://bk5aqmvh6d3ey" path="res://assets/sounds/old-wood-creaking-building-171122.mp3" id="14_243ug"]
-[ext_resource type="AudioStream" uid="uid://d3b6t5jaxjrdx" path="res://assets/sounds/natural-thunder-113219.mp3" id="15_ibiof"]
-[ext_resource type="AudioStream" uid="uid://d2n5sojwpd86x" path="res://assets/sounds/light-rain-ambient-114354.mp3" id="16_beip1"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_rvhs7"]
-shader = ExtResource("8_o1qnq")
-shader_parameter/vignette_intensity = 0.7
-shader_parameter/vignette_opacity = 1.0
-shader_parameter/vignette_rgb = Color(0, 0, 0, 1)
-
-[sub_resource type="Environment" id="Environment_aupqe"]
-background_mode = 3
-tonemap_mode = 3
-glow_enabled = true
-glow_normalized = true
-glow_intensity = 1.09
-glow_bloom = 0.14
-glow_blend_mode = 0
-adjustment_enabled = true
-adjustment_contrast = 1.15
-adjustment_saturation = 1.15
+[ext_resource type="PackedScene" uid="uid://40afq3mpw7ix" path="res://game_components/world_environment.tscn" id="15_ebfuq"]
+[ext_resource type="PackedScene" uid="uid://dhc5jc3m08lew" path="res://game_components/directional_light_2d.tscn" id="16_c4wtk"]
+[ext_resource type="PackedScene" uid="uid://ctpcffram5hj4" path="res://game_components/house_sounds.tscn" id="17_fixcj"]
+[ext_resource type="PackedScene" uid="uid://d2yyil8fljk4b" path="res://game_components/thunder.tscn" id="18_d66rm"]
+[ext_resource type="PackedScene" uid="uid://bku0ytg1mjig6" path="res://game_components/rain.tscn" id="19_el3hp"]
 
 [node name="TestScene" type="Node2D"]
 y_sort_enabled = true
@@ -96,14 +80,7 @@ position = Vector2(1233, 364)
 
 [node name="ParallaxLayer" parent="UI" instance=ExtResource("13_2kb21")]
 
-[node name="TextureRect" type="ColorRect" parent="UI"]
-material = SubResource("ShaderMaterial_rvhs7")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
+[node name="TextureRect" parent="UI" instance=ExtResource("9_jw2xp")]
 
 [node name="TileMap" type="TileMap" parent="."]
 z_index = -1
@@ -156,27 +133,12 @@ position = Vector2(768, 448)
 [node name="ProjectileRotatorDown" parent="." instance=ExtResource("11_0lvyb")]
 position = Vector2(792, 896)
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_aupqe")
+[node name="WorldEnvironment" parent="." instance=ExtResource("15_ebfuq")]
 
-[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
-color = Color(0.627451, 0.627451, 0.627451, 1)
-blend_mode = 2
+[node name="DirectionalLight2D" parent="." instance=ExtResource("16_c4wtk")]
 
-[node name="HouseSounds" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("14_243ug")
-volume_db = 4.0
-autoplay = true
-bus = &"Sound"
+[node name="HouseSounds" parent="." instance=ExtResource("17_fixcj")]
 
-[node name="Thunder" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("15_ibiof")
-volume_db = -5.0
-autoplay = true
-bus = &"Sound"
+[node name="Thunder" parent="." instance=ExtResource("18_d66rm")]
 
-[node name="Rain" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("16_beip1")
-volume_db = -10.0
-autoplay = true
-bus = &"SounRain"
+[node name="Rain" parent="." instance=ExtResource("19_el3hp")]

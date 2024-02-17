@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://bnx4nfv2l1hgr"]
+[gd_scene load_steps=12 format=3 uid="uid://bnx4nfv2l1hgr"]
 
 [ext_resource type="Texture2D" uid="uid://cn22f80d46mo1" path="res://assets/Witch.png" id="1_dvdcl"]
 [ext_resource type="PackedScene" uid="uid://cklqhig5f0njo" path="res://game_components/interact_area/interact_area.tscn" id="2_ys3yc"]
 [ext_resource type="Texture2D" uid="uid://d2no5lqxpxlgt" path="res://assets/popintLightTexture/2d_lights_and_shadows_neutral_point_light.webp" id="3_ocv6i"]
+[ext_resource type="Texture2D" uid="uid://8l1lr7lyn0at" path="res://puzzlePieces/butterfly.png" id="4_7rhby"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_hojs2"]
 polygon = PackedVector2Array(-61.25, -51.25, -65, -40, -66.25, -27.5, -62.5, -20, -51.25, -16.25, -36.25, -18.75, -30, -20, -22.5, -22.5, -5, -22.5, 5, -22.5, 13.75, -21.25, 17.5, -21.25, 26.25, -17.5, 38.75, -16.25, 47.5, -16.25, 55, -18.75, 57.5, -26.25, 57.5, -33.75, 52.5, -43.75, 45, -53.75, 28.75, -57.5, 21.25, -55, 7.5, -52.5, -6.25, -52.5, -16.25, -53.75, -22.5, -55, -30, -55, -43.75, -55, -50, -51.25)
@@ -20,6 +21,106 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0.8, 0.7)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../CPUParticles2D2/PointLight2D:energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../CPUParticles2D2:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../PointLight2D:energy")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_aluca"]
+resource_name = "witch_fade_out"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../CPUParticles2D2/PointLight2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../CPUParticles2D2:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.5, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../PointLight2D:energy")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
 }
 
 [sub_resource type="Animation" id="Animation_p0ya6"]
@@ -42,8 +143,20 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gaup1"]
 _data = {
 "RESET": SubResource("Animation_w5ard"),
+"witch_fade_out": SubResource("Animation_aluca"),
 "witch_idle": SubResource("Animation_p0ya6")
 }
+
+[sub_resource type="Curve" id="Curve_dsxpo"]
+min_value = -500.0
+max_value = 500.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.0, 0.0, 1, 0]
+point_count = 2
+metadata/_snap_enabled = true
+
+[sub_resource type="Gradient" id="Gradient_0iml8"]
+offsets = PackedFloat32Array(0, 0.582278)
+colors = PackedColorArray(0.935438, 0.126783, 0, 1, 1, 1, 1, 1)
 
 [node name="Witch" type="Node2D"]
 position = Vector2(5, 77.5)
@@ -79,3 +192,40 @@ position = Vector2(-5, -77.5)
 color = Color(0.623529, 0.113725, 1, 1)
 texture = ExtResource("3_ocv6i")
 texture_scale = 2.0
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="."]
+position = Vector2(-4, -76.5)
+emitting = false
+amount = 100
+lifetime = 4.0
+one_shot = true
+explosiveness = 0.3
+randomness = 0.16
+lifetime_randomness = 0.2
+texture = ExtResource("4_7rhby")
+emission_shape = 1
+emission_sphere_radius = 128.0
+spread = 75.95
+gravity = Vector2(0, 50)
+angular_velocity_min = -30.0
+angular_velocity_max = 32.57
+orbit_velocity_min = 1.0
+orbit_velocity_max = 1.1
+orbit_velocity_curve = SubResource("Curve_dsxpo")
+linear_accel_min = -41.63
+linear_accel_max = -13.57
+radial_accel_min = -37.1
+radial_accel_max = 24.43
+tangential_accel_min = -57.01
+tangential_accel_max = 25.34
+damping_min = 4.978
+damping_max = 14.862
+scale_amount_min = 0.05
+scale_amount_max = 0.2
+color_ramp = SubResource("Gradient_0iml8")
+
+[node name="PointLight2D" type="PointLight2D" parent="CPUParticles2D2"]
+color = Color(1, 0.266667, 0, 1)
+energy = 0.0
+texture = ExtResource("3_ocv6i")
+texture_scale = 0.5

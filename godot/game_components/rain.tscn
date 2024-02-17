@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bku0ytg1mjig6"]
+
+[ext_resource type="AudioStream" uid="uid://d2n5sojwpd86x" path="res://assets/sounds/light-rain-ambient-114354.mp3" id="1_gp64q"]
+
+[node name="Rain" type="AudioStreamPlayer"]
+stream = ExtResource("1_gp64q")
+volume_db = -10.0
+autoplay = true
+bus = &"SounRain"

@@ -1,0 +1,35 @@
+[signal arg="dialog_started"]
+join friend (friend_potrait) 2
+friend (friend_potrait): Well i think I'm gonna head out, are you going to keep playing?
+leave friend
+join player (joni_potrait) 2
+player: Yes.... I'll stay a little bit more but watching youtube. We have played for like 10 hours today my head is about to explode if I don't stop
+leave player
+join friend (friend_potrait) 2
+friend (friend_potrait): Hahahahhahahaaahahah!!!! my eyes are about to fall from it's sockets. Don't stay too long, or you'll end up getting up at tea time.
+leave friend
+join player (joni_potrait) 2
+player: Hehe...
+leave player
+join friend (friend_potrait) 2
+friend (friend_potrait): Hey!! before I forget. Tomorrow we're all gonna grab some beers and then, I don't know... maybe hang out or something. We'll probably grab dinner somewhere. What? No idea, you know how we roll tsss
+leave friend
+join player (joni_potrait) 2
+join player (joni_potrait) 2
+player: Mmmmm.... I don't know what to tell you, I've been out of the loop for a while, haven't talked to them in ages, just in touch with you basically. Depends on how I feel when I wake up.
+leave player
+join friend (friend_potrait) 2
+friend (friend_potrait): Well, do whatever you want... I haven't seen your face in like 8 months... but hey, whenever you're ready....
+leave friend
+.............................
+join friend (friend_potrait) 2
+friend (friend_potrait): I miss seeing you.
+leave friend
+.............................
+join friend (friend_potrait) 2
+friend (friend_potrait): Well...
+friend (friend_potrait): Ciao!!!
+[sound path="res://assets/sounds/Discord Leave - Sound Effect (HD) [TubeRipper.com].ogg" volume="-10.0"]
+[signal arg="dialog_ended"]
+[signal arg="dialog_test_0_ended"]
+[end_timeline]

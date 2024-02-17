@@ -1,0 +1,140 @@
+{
+"@path": "res://addons/dialogic/Resources/character.gd",
+"@subpath": NodePath(""),
+"_translation_id": "",
+"color": Color(1, 1, 1, 1),
+"custom_info": {
+"sound_mood_default": "",
+"sound_moods": {
+"Mood 1": {
+"mode": 0,
+"name": "Mood 1",
+"pitch_base": 1.6,
+"pitch_variance": 0.5,
+"skip_characters": 3.0,
+"sound_path": "res://assets/sounds/Single_Low_O_No_Reverb_v1_wav.wav",
+"volume_base": -10.0,
+"volume_variance": 0.5
+}
+},
+"style": ""
+},
+"default_portrait": "friend",
+"description": "",
+"display_name": "Lovi",
+"mirror": false,
+"nicknames": [""],
+"offset": Vector2(0, -160),
+"portraits": {
+"Chiquillas": {
+"export_overrides": {
+"image": "\"res://assets/Chiquillas.PNG\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"IMG_4817": {
+"export_overrides": {
+"image": "\"res://assets/IMG_4817.PNG\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"TileSet": {
+"export_overrides": {
+"image": "\"res://assets/TileSet.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"TileSet128": {
+"export_overrides": {
+"image": "\"res://assets/TileSet128.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"Witch": {
+"export_overrides": {
+"image": "\"res://assets/Witch.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"friend": {
+"export_overrides": {
+"image": ""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"friend_potrait": {
+"export_overrides": {
+"image": "\"res://assets/friend_potrait.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1.0,
+"scene": "",
+"sound_mood": "Mood 1"
+},
+"joni": {
+"export_overrides": {
+"image": "\"res://assets/joni.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"joni_potrait": {
+"export_overrides": {
+"image": "\"res://assets/joni_potrait.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"room_test": {
+"export_overrides": {
+"image": "\"res://assets/room_test.PNG\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"scale_reference": {
+"export_overrides": {
+"image": "\"res://assets/scale_reference.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"witch_potrait": {
+"export_overrides": {
+"image": "\"res://assets/witch_potrait.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+}
+},
+"scale": 0.2
+}

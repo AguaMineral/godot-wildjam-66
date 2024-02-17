@@ -8,6 +8,10 @@
 
 config_version=5
 
+[addons]
+
+universal_fade/patterns_directory="res://addons/UniversalFade/Patterns"
+
 [application]
 
 config/name="Godot wild jam 66"
@@ -25,18 +29,22 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 [dialogic]
 
 directories/dch_directory={
+"friend": "res://dialogic_timelines/Characters/friend.dch",
 "player": "res://dialogic_timelines/Characters/player.dch",
-"witch": "res://dialogic_timelines/Characters/witch.dch"
+"witch": "res://dialogic_timelines/Characters/witch.dch",
+"witch_interrogation": "res://dialogic_timelines/Characters/witch_interrogation.dch"
 }
 directories/dtl_directory={
+"dialog_test_0": "res://i18n/dialog_translations/dialog_test_0.dtl",
+"dialog_witch_room0_0": "res://assets/sounds/dialog_witch_room0_0.dtl",
 "test_timeline": "res://dialogic_timelines/test_timeline.dtl"
 }
 glossary/default_case_sensitive=true
 variables={}
 text/letter_speed=0.05
 text/initial_text_reveal_skippable=true
-text/text_reveal_skip_delay=0.1
-text/autoadvance_per_character_delay=0.1
+text/text_reveal_skip_delay=0.05
+text/autoadvance_per_character_delay=0
 text/autoadvance_ignored_characters_enabled=true
 animations/join_default_length=0.5
 animations/leave_default_length=0.5
@@ -54,6 +62,26 @@ text/split_at_new_lines_as=0
 text/autopauses={}
 layout/style_list=["res://dialogic_timelines/styles/MyStyleDialogic.tres"]
 layout/default_style="res://dialogic_timelines/styles/MyStyleDialogic.tres"
+translation/enabled=false
+translation/original_locale="es"
+translation/file_mode=1
+translation/translation_folder="res://i18n/dialog_translations"
+translation/save_mode=0
+translation/add_separator=false
+translation/intern/save_mode=0
+translation/intern/file_mode=1
+translation/intern/translation_folder="res://i18n/dialog_translations"
+translation/id_counter=23
+event_default_overrides={
+"Music": {
+"audio_bus": "Music"
+},
+"Sound": {
+"audio_bus": "Sound"
+}
+}
+text/autoadvance_fixed_delay=0.5
+text/autoadvance_per_word_delay=0
 
 [display]
 
@@ -142,6 +170,7 @@ restart_level={
 [internationalization]
 
 locale/translations=PackedStringArray("res://i18n/translation.de.translation", "res://i18n/translation.en.translation")
+locale/test="es"
 
 [layer_names]
 

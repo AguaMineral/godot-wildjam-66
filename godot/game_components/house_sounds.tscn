@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://ctpcffram5hj4"]
+
+[ext_resource type="AudioStream" uid="uid://bk5aqmvh6d3ey" path="res://assets/sounds/old-wood-creaking-building-171122.mp3" id="1_bmgpd"]
+
+[node name="HouseSounds" type="AudioStreamPlayer"]
+stream = ExtResource("1_bmgpd")
+volume_db = 4.0
+autoplay = true
+bus = &"Sound"
