@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://h5s0aae2ff5k"]
+[gd_scene load_steps=20 format=3 uid="uid://h5s0aae2ff5k"]
 
 [ext_resource type="Script" path="res://test/test_scene.gd" id="1_4minq"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_qhm67"]
@@ -10,12 +10,28 @@
 [ext_resource type="TileSet" uid="uid://coy7p6w7ufubt" path="res://assets/MytileSet.tres" id="7_gwymt"]
 [ext_resource type="PackedScene" uid="uid://dt278af587n8f" path="res://puzzlePieces/exit_door.tscn" id="7_kjku7"]
 [ext_resource type="PackedScene" uid="uid://uvp3ycuekgkg" path="res://puzzlePieces/inmovable_object.tscn" id="8_emwdh"]
+[ext_resource type="Shader" path="res://effecs/vignette.gdshader" id="8_o1qnq"]
 [ext_resource type="PackedScene" uid="uid://bejfg2rn3lptj" path="res://puzzlePieces/projectile_rotator.tscn" id="9_lm8j3"]
 [ext_resource type="PackedScene" uid="uid://dfxg5vkuqmmtm" path="res://puzzlePieces/projectile_rotator_down.tscn" id="11_0lvyb"]
+[ext_resource type="PackedScene" uid="uid://chjye2kl16g28" path="res://effecs/fog.tscn" id="13_2kb21"]
+[ext_resource type="AudioStream" uid="uid://bk5aqmvh6d3ey" path="res://assets/sounds/old-wood-creaking-building-171122.mp3" id="14_243ug"]
+[ext_resource type="AudioStream" uid="uid://d3b6t5jaxjrdx" path="res://assets/sounds/natural-thunder-113219.mp3" id="15_ibiof"]
+[ext_resource type="AudioStream" uid="uid://d2n5sojwpd86x" path="res://assets/sounds/light-rain-ambient-114354.mp3" id="16_beip1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rvhs7"]
+shader = ExtResource("8_o1qnq")
+shader_parameter/vignette_intensity = 0.7
+shader_parameter/vignette_opacity = 1.0
+shader_parameter/vignette_rgb = Color(0, 0, 0, 1)
 
 [sub_resource type="Environment" id="Environment_aupqe"]
 background_mode = 3
+tonemap_mode = 3
 glow_enabled = true
+glow_normalized = true
+glow_intensity = 1.09
+glow_bloom = 0.14
+glow_blend_mode = 0
 adjustment_enabled = true
 adjustment_contrast = 1.15
 adjustment_saturation = 1.15
@@ -25,7 +41,7 @@ y_sort_enabled = true
 script = ExtResource("1_4minq")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(815, 607)
+position = Vector2(207, 533)
 limit_left = -513
 limit_top = -384
 limit_right = 1535
@@ -36,9 +52,10 @@ script = ExtResource("2_qhm67")
 
 [node name="Player" type="Node2D" parent="."]
 y_sort_enabled = true
+position = Vector2(-888, -74)
 
 [node name="PhantomCamera2D" type="Node2D" parent="Player"]
-position = Vector2(815, 607)
+position = Vector2(1095, 607)
 script = ExtResource("4_7ctfj")
 priority_override = false
 priority = 0
@@ -73,8 +90,20 @@ next_scene = ExtResource("4_w6dub")
 y_sort_enabled = true
 
 [node name="Witch4" parent="Interactibles" instance=ExtResource("7_2rvfl")]
+position = Vector2(1233, 364)
 
 [node name="UI" type="CanvasLayer" parent="."]
+
+[node name="ParallaxLayer" parent="UI" instance=ExtResource("13_2kb21")]
+
+[node name="TextureRect" type="ColorRect" parent="UI"]
+material = SubResource("ShaderMaterial_rvhs7")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
 
 [node name="TileMap" type="TileMap" parent="."]
 z_index = -1
@@ -109,7 +138,7 @@ position = Vector2(320, 831)
 position = Vector2(320, 960)
 
 [node name="InmovableObject11" parent="." instance=ExtResource("8_emwdh")]
-position = Vector2(320, 1088)
+position = Vector2(704, 1206)
 
 [node name="InmovableObject7" parent="." instance=ExtResource("8_emwdh")]
 position = Vector2(320, 67)
@@ -129,3 +158,25 @@ position = Vector2(792, 896)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_aupqe")
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+color = Color(0.627451, 0.627451, 0.627451, 1)
+blend_mode = 2
+
+[node name="HouseSounds" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_243ug")
+volume_db = 4.0
+autoplay = true
+bus = &"Sound"
+
+[node name="Thunder" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_ibiof")
+volume_db = -5.0
+autoplay = true
+bus = &"Sound"
+
+[node name="Rain" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_beip1")
+volume_db = -10.0
+autoplay = true
+bus = &"SounRain"

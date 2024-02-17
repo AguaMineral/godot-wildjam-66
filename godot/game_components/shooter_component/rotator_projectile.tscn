@@ -1,11 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://b736xhqookift"]
+[gd_scene load_steps=6 format=3 uid="uid://b736xhqookift"]
 
 [ext_resource type="Texture2D" uid="uid://8l1lr7lyn0at" path="res://puzzlePieces/butterfly.png" id="1_1v406"]
 [ext_resource type="Script" path="res://game_components/shooter_component/rotator_projectile.gd" id="2_fchqn"]
 [ext_resource type="Texture2D" uid="uid://d2no5lqxpxlgt" path="res://assets/popintLightTexture/2d_lights_and_shadows_neutral_point_light.webp" id="3_efe3j"]
+[ext_resource type="PackedScene" uid="uid://bq5bilbxetsc2" path="res://effecs/cpu_particles_2d.tscn" id="4_0tcxn"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_xv6jd"]
-radius = 15.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lst0i"]
+size = Vector2(120, 20)
 
 [node name="RotatorProjectile" type="Sprite2D" groups=["projectile"]]
 scale = Vector2(0.2, 0.2)
@@ -22,13 +23,19 @@ collision_layer = 16
 collision_mask = 12
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CircleShape2D_xv6jd")
+position = Vector2(-2.38419e-06, 5)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_lst0i")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 color = Color(1, 0.686275, 0, 1)
 shadow_enabled = true
 shadow_item_cull_mask = 5
 texture = ExtResource("3_efe3j")
+
+[node name="CPUParticles2D" parent="." instance=ExtResource("4_0tcxn")]
+z_index = 1
+amount = 5
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

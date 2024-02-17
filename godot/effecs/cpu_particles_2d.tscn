@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=3 uid="uid://bq5bilbxetsc2"]
+
+[ext_resource type="Texture2D" uid="uid://8l1lr7lyn0at" path="res://puzzlePieces/butterfly.png" id="1_hokwt"]
+[ext_resource type="Script" path="res://effecs/cpu_particles_2d.gd" id="2_7s1qv"]
+[ext_resource type="Texture2D" uid="uid://d2no5lqxpxlgt" path="res://assets/popintLightTexture/2d_lights_and_shadows_neutral_point_light.webp" id="3_w4htk"]
+
+[sub_resource type="Curve" id="Curve_dsxpo"]
+min_value = -500.0
+max_value = 500.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.0, 0.0, 1, 0]
+point_count = 2
+metadata/_snap_enabled = true
+
+[sub_resource type="Gradient" id="Gradient_0iml8"]
+colors = PackedColorArray(0.627451, 0, 0, 1, 1, 1, 1, 1)
+
+[node name="CPUParticles2D" type="CPUParticles2D"]
+emitting = false
+lifetime = 2.0
+one_shot = true
+explosiveness = 0.3
+randomness = 0.16
+lifetime_randomness = 0.2
+texture = ExtResource("1_hokwt")
+emission_shape = 1
+emission_sphere_radius = 128.0
+spread = 75.95
+gravity = Vector2(0, 50)
+angular_velocity_min = -30.0
+angular_velocity_max = 32.57
+orbit_velocity_min = 1.0
+orbit_velocity_max = 1.1
+orbit_velocity_curve = SubResource("Curve_dsxpo")
+linear_accel_min = -41.63
+linear_accel_max = -13.57
+radial_accel_min = -37.1
+radial_accel_max = 24.43
+tangential_accel_min = -57.01
+tangential_accel_max = 25.34
+damping_min = 4.978
+damping_max = 14.862
+scale_amount_min = 0.05
+scale_amount_max = 0.2
+color_ramp = SubResource("Gradient_0iml8")
+script = ExtResource("2_7s1qv")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(1, 0.266667, 0, 1)
+energy = 0.2
+texture = ExtResource("3_w4htk")
+texture_scale = 0.5
+
+[connection signal="finished" from="." to="." method="_on_finished"]

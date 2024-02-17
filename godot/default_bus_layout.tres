@@ -1,4 +1,11 @@
-[gd_resource type="AudioBusLayout" format=3 uid="uid://dq3dvojo8sb1n"]
+[gd_resource type="AudioBusLayout" load_steps=2 format=3 uid="uid://dq3dvojo8sb1n"]
+
+[sub_resource type="AudioEffectEQ" id="AudioEffectEQ_6fiu7"]
+resource_name = "EQ"
+band_db/32_hz = -0.7
+band_db/1000_hz = -8.8
+band_db/3200_hz = -16.3
+band_db/10000_hz = -31.2
 
 [resource]
 bus/1/name = &"Sound"
@@ -13,3 +20,11 @@ bus/2/mute = false
 bus/2/bypass_fx = false
 bus/2/volume_db = 0.0
 bus/2/send = &"Master"
+bus/3/name = &"SounRain"
+bus/3/solo = false
+bus/3/mute = false
+bus/3/bypass_fx = false
+bus/3/volume_db = 0.0
+bus/3/send = &"Sound"
+bus/3/effect/0/effect = SubResource("AudioEffectEQ_6fiu7")
+bus/3/effect/0/enabled = true
