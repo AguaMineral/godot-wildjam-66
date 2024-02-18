@@ -31,6 +31,8 @@ func _on_area_2d_body_entered(body):
 		emit_butterfly_particles(false)
 	if body.is_in_group("turret"):
 		call_deferred("queue_free")
+	if body.is_in_group("only_movable"):
+		call_deferred("queue_free")
 
 func emit_butterfly_particles(destroy = true):
 	if (destroy):

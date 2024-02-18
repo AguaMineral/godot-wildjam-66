@@ -76,7 +76,8 @@ func move_object() -> int:
 	tween.tween_property(object_to_move, "position", object_to_move.position + move_dir * tile_size, 1.0/animation_speed ).set_trans(Tween.TRANS_SINE)
 	moving = true
 	audio_stream_player.pitch_scale = randf_range(0.8,1.2)
-	audio_stream_player.play()
+	if move_dir != Vector2.ZERO:
+		audio_stream_player.play()
 	await tween.finished
 	moving = false
 	if move_dir == Vector2.ZERO:

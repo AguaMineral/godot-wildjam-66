@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://c6p8l6ewisab2"]
+
+[ext_resource type="Texture2D" uid="uid://dx3sw56hpsyrh" path="res://puzzlePieces/only_movable.png" id="1_8vc3q"]
+[ext_resource type="PackedScene" uid="uid://gtncp4o70a1s" path="res://game_components/MoveGridobjectComponent/move_grid_object_component.tscn" id="2_i6vpj"]
+[ext_resource type="PackedScene" uid="uid://cklqhig5f0njo" path="res://game_components/interact_area/interact_area.tscn" id="3_kmtfv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rfrlt"]
+size = Vector2(124, 91)
+
+[node name="OnlyMovable" type="StaticBody2D" groups=["only_movable"]]
+collision_layer = 256
+collision_mask = 188
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_8vc3q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 14.5)
+shape = SubResource("RectangleShape2D_rfrlt")
+
+[node name="MoveGridObjectComponent" parent="." node_paths=PackedStringArray("object_to_move") instance=ExtResource("2_i6vpj")]
+object_to_move = NodePath("..")
+
+[node name="InteractArea" parent="." node_paths=PackedStringArray("interaction_parent") instance=ExtResource("3_kmtfv")]
+interact_label = "Push"
+interact_type = "move_object"
+interaction_parent = NodePath("../MoveGridObjectComponent")

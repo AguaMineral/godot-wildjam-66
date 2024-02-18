@@ -29,7 +29,8 @@ func _on_area_2d_body_entered(body):
 	if body.is_in_group("Player"):
 		emit_butterfly_particles(false)
 		GameManager.player_projectile_hit.emit(global_position.y)
-		
+	if body.is_in_group("only_movable"):
+		call_deferred("queue_free")
 
 func emit_butterfly_particles(destroy = true):
 	if (destroy):

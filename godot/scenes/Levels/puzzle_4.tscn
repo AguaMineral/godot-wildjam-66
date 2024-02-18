@@ -1,106 +1,101 @@
-[gd_scene load_steps=16 format=3 uid="uid://t1b5cbqwq1xv"]
+[gd_scene load_steps=15 format=3 uid="uid://od4p45nsg8g7"]
 
-[ext_resource type="PackedScene" uid="uid://chjye2kl16g28" path="res://effecs/fog.tscn" id="1_jx4yt"]
-[ext_resource type="Script" path="res://scenes/Levels/puzzle_3.gd" id="1_tgvi2"]
-[ext_resource type="PackedScene" uid="uid://c58aekgiyeftw" path="res://game_components/vignette.tscn" id="2_6j417"]
-[ext_resource type="PackedScene" uid="uid://dt278af587n8f" path="res://puzzlePieces/exit_door.tscn" id="3_d42ga"]
-[ext_resource type="PackedScene" uid="uid://dq3rl1pw6jmg8" path="res://scenes/Levels/level_room_1.tscn" id="4_huone"]
-[ext_resource type="PackedScene" uid="uid://c44qjrc364yxo" path="res://puzzlePieces/turret.tscn" id="5_hoal2"]
-[ext_resource type="PackedScene" uid="uid://uvp3ycuekgkg" path="res://puzzlePieces/inmovable_object.tscn" id="8_hctej"]
-[ext_resource type="TileSet" uid="uid://coy7p6w7ufubt" path="res://assets/MytileSet.tres" id="9_jyr5n"]
-[ext_resource type="PackedScene" uid="uid://c6p8l6ewisab2" path="res://scenes/Levels/only_movable.tscn" id="10_n3m77"]
-[ext_resource type="PackedScene" uid="uid://c07dqsgujyusm" path="res://game_components/camera_phantom.tscn" id="10_nmq4v"]
-[ext_resource type="PackedScene" uid="uid://bdtar4s2mjo05" path="res://game_components/player_phantom_camera.tscn" id="11_b7n43"]
-[ext_resource type="PackedScene" uid="uid://40afq3mpw7ix" path="res://game_components/world_environment.tscn" id="12_u38ar"]
-[ext_resource type="PackedScene" uid="uid://dhc5jc3m08lew" path="res://game_components/directional_light_2d.tscn" id="13_f6oic"]
-[ext_resource type="PackedScene" uid="uid://bku0ytg1mjig6" path="res://game_components/rain.tscn" id="14_0konl"]
-[ext_resource type="PackedScene" uid="uid://ctpcffram5hj4" path="res://game_components/house_sounds.tscn" id="15_x80xv"]
+[ext_resource type="PackedScene" uid="uid://chjye2kl16g28" path="res://effecs/fog.tscn" id="1_1pm30"]
+[ext_resource type="PackedScene" uid="uid://c58aekgiyeftw" path="res://game_components/vignette.tscn" id="2_14bx7"]
+[ext_resource type="PackedScene" uid="uid://dt278af587n8f" path="res://puzzlePieces/exit_door.tscn" id="3_pbfrf"]
+[ext_resource type="PackedScene" uid="uid://dq3rl1pw6jmg8" path="res://scenes/Levels/level_room_1.tscn" id="4_mbhdp"]
+[ext_resource type="PackedScene" uid="uid://c44qjrc364yxo" path="res://puzzlePieces/turret.tscn" id="5_hojuc"]
+[ext_resource type="PackedScene" uid="uid://uvp3ycuekgkg" path="res://puzzlePieces/inmovable_object.tscn" id="6_ooq7w"]
+[ext_resource type="PackedScene" uid="uid://c6p8l6ewisab2" path="res://scenes/Levels/only_movable.tscn" id="7_1bdej"]
+[ext_resource type="TileSet" uid="uid://coy7p6w7ufubt" path="res://assets/MytileSet.tres" id="8_hgpup"]
+[ext_resource type="PackedScene" uid="uid://c07dqsgujyusm" path="res://game_components/camera_phantom.tscn" id="9_qttig"]
+[ext_resource type="PackedScene" uid="uid://bdtar4s2mjo05" path="res://game_components/player_phantom_camera.tscn" id="10_abfjk"]
+[ext_resource type="PackedScene" uid="uid://40afq3mpw7ix" path="res://game_components/world_environment.tscn" id="11_0iyuj"]
+[ext_resource type="PackedScene" uid="uid://dhc5jc3m08lew" path="res://game_components/directional_light_2d.tscn" id="12_kobxc"]
+[ext_resource type="PackedScene" uid="uid://bku0ytg1mjig6" path="res://game_components/rain.tscn" id="13_myfql"]
+[ext_resource type="PackedScene" uid="uid://ctpcffram5hj4" path="res://game_components/house_sounds.tscn" id="14_c2gqt"]
 
-[node name="Puzzle3" type="Node2D"]
+[node name="Puzzle4" type="Node2D"]
 y_sort_enabled = true
-script = ExtResource("1_tgvi2")
 
 [node name="EFfects" type="CanvasLayer" parent="."]
 
-[node name="ParallaxLayer" parent="EFfects" instance=ExtResource("1_jx4yt")]
+[node name="ParallaxLayer" parent="EFfects" instance=ExtResource("1_1pm30")]
 scroll_offset = Vector2(-26.1768, -1374.88)
 
-[node name="TextureRect" parent="EFfects" instance=ExtResource("2_6j417")]
+[node name="TextureRect" parent="EFfects" instance=ExtResource("2_14bx7")]
 
 [node name="PuzzlePieces" type="Node2D" parent="."]
 y_sort_enabled = true
 
-[node name="ExitDoor" parent="PuzzlePieces" instance=ExtResource("3_d42ga")]
+[node name="ExitDoor" parent="PuzzlePieces" instance=ExtResource("3_pbfrf")]
 z_index = -1
 position = Vector2(832, 832)
 rotation = 4.71239
-next_scene = ExtResource("4_huone")
+next_scene = ExtResource("4_mbhdp")
 
-[node name="Turret" parent="PuzzlePieces" instance=ExtResource("5_hoal2")]
+[node name="InteractArea" parent="PuzzlePieces/ExitDoor" index="5" node_paths=PackedStringArray("interaction_parent")]
+interaction_parent = NodePath("")
+
+[node name="Turret" parent="PuzzlePieces" instance=ExtResource("5_hojuc")]
 position = Vector2(192, 832)
 
-[node name="Turret2" parent="PuzzlePieces" instance=ExtResource("5_hoal2")]
+[node name="Turret2" parent="PuzzlePieces" instance=ExtResource("5_hojuc")]
 position = Vector2(704, 256)
 face_left = true
 
-[node name="InmovableObject" parent="PuzzlePieces" instance=ExtResource("8_hctej")]
+[node name="InmovableObject" parent="PuzzlePieces" instance=ExtResource("6_ooq7w")]
 position = Vector2(704, 448)
 
-[node name="InmovableObject7" parent="PuzzlePieces" instance=ExtResource("8_hctej")]
+[node name="InmovableObject7" parent="PuzzlePieces" instance=ExtResource("6_ooq7w")]
 position = Vector2(832, 576)
 
-[node name="InmovableObject8" parent="PuzzlePieces" instance=ExtResource("8_hctej")]
+[node name="InmovableObject8" parent="PuzzlePieces" instance=ExtResource("6_ooq7w")]
 position = Vector2(960, 576)
 
-[node name="InmovableObject9" parent="PuzzlePieces" instance=ExtResource("8_hctej")]
+[node name="InmovableObject9" parent="PuzzlePieces" instance=ExtResource("6_ooq7w")]
 position = Vector2(960, 704)
 
-[node name="InmovableObject10" parent="PuzzlePieces" instance=ExtResource("8_hctej")]
+[node name="InmovableObject10" parent="PuzzlePieces" instance=ExtResource("6_ooq7w")]
 position = Vector2(960, 832)
 
-[node name="InmovableObject2" parent="PuzzlePieces" instance=ExtResource("8_hctej")]
+[node name="InmovableObject2" parent="PuzzlePieces" instance=ExtResource("6_ooq7w")]
 position = Vector2(832, 448)
 
-[node name="InmovableObject3" parent="PuzzlePieces" instance=ExtResource("8_hctej")]
+[node name="InmovableObject3" parent="PuzzlePieces" instance=ExtResource("6_ooq7w")]
 position = Vector2(960, 448)
 
-[node name="OnlyMovable" parent="PuzzlePieces" instance=ExtResource("10_n3m77")]
+[node name="OnlyMovable" parent="PuzzlePieces" instance=ExtResource("7_1bdej")]
 position = Vector2(448, 832)
 
-[node name="OnlyMovable2" parent="PuzzlePieces" instance=ExtResource("10_n3m77")]
+[node name="OnlyMovable2" parent="PuzzlePieces" instance=ExtResource("7_1bdej")]
 position = Vector2(192, 704)
 
-[node name="OnlyMovable3" parent="PuzzlePieces" instance=ExtResource("10_n3m77")]
+[node name="OnlyMovable3" parent="PuzzlePieces" instance=ExtResource("7_1bdej")]
 position = Vector2(448, 960)
 
 [node name="TileMap" type="TileMap" parent="."]
 z_index = -1
-tile_set = ExtResource("9_jyr5n")
+tile_set = ExtResource("8_hgpup")
 format = 2
 layer_0/tile_data = PackedInt32Array(0, 196608, 1, 65536, 65536, 0, 131072, 65536, 0, 196608, 65536, 0, 262144, 65536, 0, 327680, 65536, 0, 393216, 65536, 0, 458752, 65536, 0, 1, 196608, 1, 65537, 65536, 0, 131073, 65536, 0, 196609, 65536, 0, 262145, 65536, 0, 327681, 65536, 0, 393217, 65536, 0, 458753, 65536, 0, 2, 196608, 1, 65538, 65536, 0, 131074, 65536, 0, 196610, 65536, 0, 262146, 65536, 0, 327682, 65536, 0, 393218, 65536, 0, 458754, 65536, 0, 3, 196608, 1, 65539, 65536, 0, 131075, 65536, 0, 196611, 65536, 0, 262147, 65536, 0, 327683, 65536, 0, 393219, 65536, 0, 458755, 65536, 0, 4, 196608, 1, 65540, 65536, 0, 131076, 65536, 0, 196612, 65536, 0, 262148, 65536, 0, 327684, 65536, 0, 393220, 65536, 0, 458756, 65536, 0, 5, 196608, 1, 65541, 65536, 0, 131077, 65536, 0, 196613, 65536, 0, 262149, 65536, 0, 327685, 65536, 0, 393221, 65536, 0, 458757, 65536, 0, 524288, 65536, 0, 524289, 65536, 0, 524290, 65536, 0, 524291, 65536, 0, 524292, 65536, 0, 524293, 65536, 0, 131071, 262144, 1, 196607, 262144, 1, 262143, 262144, 1, 327679, 262144, 1, 393215, 262144, 1, 458751, 262144, 1, 524287, 262144, 1, 65535, 262144, 1, 131070, 65536, 4, 196606, 65536, 4, 262142, 65536, 4, 327678, 65536, 4, 393214, 65536, 4, 458750, 65536, 4, 524286, 65536, 4, 65534, 65536, 4, -2, 65536, 4, -1, 262144, 0, -65536, 196608, 0, -65535, 196608, 0, -65534, 196608, 0, -65533, 196608, 0, -65532, 196608, 0, -65531, 196608, 0, 589822, 65536, 4, 589823, 262144, 1, 458758, 65536, 0, 393222, 65536, 0, 327686, 65536, 0, 262150, 65536, 0, 196614, 65536, 0, 131078, 65536, 0, 65542, 65536, 0, 6, 196608, 1, -65530, 196608, 0, 524294, 65536, 0, 393223, 65536, 0, 458759, 65536, 0, 524295, 65536, 0, 524296, 262144, 3, 458760, 262144, 3, 393224, 262144, 3, 327688, 262144, 3, 262152, 262144, 3, 196616, 262144, 3, 131080, 262144, 3, 65544, 262144, 3, 8, 262144, 3, -65528, 131072, 3, -65529, 196608, 0, 7, 196608, 1, 65543, 65536, 0, 131079, 65536, 0, 196615, 65536, 0, 327687, 65536, 0, 262151, 65536, 0, -65538, 65536, 4, -65537, 65536, 4, -131072, 65536, 4, -131071, 65536, 4, -131070, 65536, 4, -131069, 65536, 4, -131068, 65536, 4, -131067, 65536, 4, -131066, 65536, 4, -131065, 65536, 4, -131064, 65536, 4, -131063, 65536, 4, -65527, 65536, 4, 9, 65536, 4, 65545, 65536, 4, 131081, 65536, 4, 196617, 65536, 4, 262153, 65536, 4, 327689, 65536, 4, 393225, 65536, 4, 458761, 65536, 4, 524297, 262144, 2, 589833, 65536, 4, 589832, 262144, 3, 589831, 65536, 0, 589830, 65536, 0, 589829, 65536, 0, 589828, 65536, 0, 589827, 65536, 0, 589826, 65536, 0, 589825, 65536, 0, 589824, 65536, 0, 655359, 262144, 1, 655358, 65536, 4, 786430, 65536, 4, 786431, 196608, 2, 720896, 262144, 2, 720897, 262144, 2, 720898, 262144, 2, 720899, 262144, 2, 720900, 262144, 2, 720901, 262144, 2, 720902, 262144, 2, 720903, 262144, 2, 655368, 262144, 3, 720904, 196608, 3, 720895, 262144, 1, 655360, 65536, 0, 655361, 65536, 0, 655362, 65536, 0, 655363, 65536, 0, 655364, 65536, 0, 655365, 65536, 0, 655366, 65536, 0, 655367, 65536, 0, 720894, 65536, 4, 851966, 65536, 4, 851967, 65536, 4, 786432, 65536, 4, 786433, 65536, 4, 786434, 65536, 4, 786435, 65536, 4, 786436, 65536, 4, 786437, 65536, 4, 786438, 65536, 4, 786439, 65536, 4, 786440, 65536, 4, 786441, 65536, 4, 655369, 65536, 4, 720905, 65536, 4)
 
-[node name="Camera2D" parent="." instance=ExtResource("10_nmq4v")]
-position = Vector2(464, 284)
-limit_left = -256
-limit_top = -256
-limit_right = 1280
-limit_bottom = 1664
+[node name="Camera2D" parent="." instance=ExtResource("9_qttig")]
+position = Vector2(363, 209.001)
 
-[node name="Player" parent="." instance=ExtResource("11_b7n43")]
+[node name="Player" parent="." instance=ExtResource("10_abfjk")]
 position = Vector2(-128, -384)
 
 [node name="PhantomCamera2D" parent="Player" index="0"]
-position = Vector2(592, 668)
-limit/limit_node_target = NodePath("../../TileMap")
-limit/margin = Vector4i(0, 0, 0, 0)
+position = Vector2(491, 593.001)
 
-[node name="WorldEnvironment" parent="." instance=ExtResource("12_u38ar")]
+[node name="WorldEnvironment" parent="." instance=ExtResource("11_0iyuj")]
 
-[node name="DirectionalLight2D" parent="." instance=ExtResource("13_f6oic")]
+[node name="DirectionalLight2D" parent="." instance=ExtResource("12_kobxc")]
 
-[node name="Rain" parent="." instance=ExtResource("14_0konl")]
+[node name="Rain" parent="." instance=ExtResource("13_myfql")]
 
-[node name="HouseSounds" parent="." instance=ExtResource("15_x80xv")]
+[node name="HouseSounds" parent="." instance=ExtResource("14_c2gqt")]
 
 [node name="FirstDialogTimer" type="Timer" parent="."]
 wait_time = 2.0
