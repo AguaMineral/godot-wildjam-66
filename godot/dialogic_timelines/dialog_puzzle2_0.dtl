@@ -1,0 +1,19 @@
+[signal arg="dialog_started"]
+join player (joni_potrait) 2
+player: ...............
+player: Are you finished?
+leave player
+join witch (witch_potrait) 2
+witch: HAHAAHAHAHAHAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAH
+witch: Are you deaf? You need to escape my roooooooooooooooooooooooomssss
+leave witch
+join player (joni_potrait) 2
+player: I've already escaped your rooms
+leave player
+join witch (witch_potrait) 2
+witch: Actually these are your rooms
+leave witch
+join player (joni_potrait) 2
+player: ...?
+[signal arg="dialog_ended"]
+[end_timeline]
