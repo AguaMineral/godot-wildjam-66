@@ -1,0 +1,31 @@
+join witch (witch_potrait) 2
+witch: AHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHAAHHAHAHAHAHA!!!\
+\
+\
+AHAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHA!!!!
+witch: Still not missing anyone?
+witch: I mean, you're putting in a lot of effort to escape.
+leave witch
+join player (joni_potrait) 2
+player: What is this?!!!
+leave player
+join witch (witch_potrait) 2
+witch: AHAHAHAHAHAHHAHAHAHAHAHA
+witch: Alright, now what? Give it a shot, give it your all, you disgusting worm, miss someone and escape already!!!!!!!!
+leave witch
+join player (joni_potrait) 2
+player: Are you trying to kill me??? PLEASE!!!
+player: I miss my mom
+player: I miss Vilo
+player: I miss Everyone
+player: I don't want this anymore
+leave player
+join witch (witch_potrait) 2
+witch: Prove it!!!
+witch: Escape
+witch: Escape
+witch: Escape
+witch: Escape
+witch: Escape
+witch: Escape
+[end_timeline]

@@ -36,13 +36,16 @@ directories/dch_directory={
 "witch_interrogation": "res://dialogic_timelines/Characters/witch_interrogation.dch"
 }
 directories/dtl_directory={
+"dialog_level3_0": "res://dialogic_timelines/dialog_level3_0.dtl",
 "dialog_puzzle0_0": "res://dialogic_timelines/dialog_puzzle0_0.dtl",
 "dialog_puzzle1_0": "res://dialogic_timelines/dialog_puzzle1_0.dtl",
 "dialog_puzzle2_0": "res://dialogic_timelines/dialog_puzzle2_0.dtl",
 "dialog_puzzle3_0": "res://dialogic_timelines/dialog_puzzle3_0.dtl",
 "dialog_test_0": "res://i18n/dialog_translations/dialog_test_0.dtl",
+"dialog_witch_puzzle6_0": "res://dialogic_timelines/dialog_witch_puzzle6_0.dtl",
 "dialog_witch_room0_0": "res://assets/sounds/dialog_witch_room0_0.dtl",
 "dialog_witch_room1_0": "res://dialogic_timelines/dialog_witch_room1_0.dtl",
+"dialog_witch_room2_0": "res://dialogic_timelines/dialog_witch_room2_0.dtl",
 "test_timeline": "res://dialogic_timelines/test_timeline.dtl"
 }
 glossary/default_case_sensitive=true

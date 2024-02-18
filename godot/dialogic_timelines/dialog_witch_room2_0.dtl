@@ -1,0 +1,32 @@
+[signal arg="dialog_started"]
+join witch (witch_potrait) 2
+witch: Hehe
+leave witch
+join player (joni_potrait) 2
+player: Not hehe...
+leave player
+join witch (witch_potrait) 2
+witch: Despite being a disgusting worm who never leaves home, it seems like you always find a way to escape my sealed rooms.
+witch: YOUR* sealed rooms.
+witch: Missing your boyfriend, huh?
+witch: You're putting in a ton of effort to escape, to get out, huh?
+leave witch
+join player (joni_potrait) 2
+player: ..... Can you please stop this? Whatever this is please stop it.
+leave player
+join witch (witch_potrait) 2
+witch: Must be tough for your friends not seeing you for months, and your mom...
+witch: She's a real gem, isn't she?
+witch: I mean, how do you think she feels when you're locked up in your own world, barely socializing with anyone except your internet buddies? You don't even look her in the face, kiddo.
+leave witch
+join player (joni_potrait) 2
+player: .....
+player: You have big words 
+player: And a beautiful madoka cosplay
+player: I just want to get back to my life, please.
+leave player
+join witch (witch_potrait) 2
+witch: AAHAHAAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHA
+witch: First you must fight you!!
+[signal arg="dialog_ended"]
+[end_timeline]

@@ -1,0 +1,21 @@
+[signal arg="dialog_started"]
+join friend (friend_potrait) 2
+friend: Alright, I'm outta here 'cause my head's about to explode... same old, see you in an hour, then?
+leave friend
+join player (joni_potrait) 2
+player: Yeah, I'm logging off too, see you in an hour \:)
+leave player
+join friend (friend_potrait) 2
+friend: Can't wait to LITERALLY see you...
+leave friend
+join player (joni_potrait) 2
+player: Same....
+player: Well...
+player: Bye!
+leave player
+join friend (friend_potrait) 2
+friend: Ciao!
+leave friend
+[sound path="res://assets/sounds/Discord Leave - Sound Effect (HD) [TubeRipper.com].ogg" volume="0.0"]
+[signal arg="dialog_ended"]
+[end_timeline]

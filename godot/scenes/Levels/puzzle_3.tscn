@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scenes/Levels/puzzle_3.gd" id="1_tgvi2"]
 [ext_resource type="PackedScene" uid="uid://c58aekgiyeftw" path="res://game_components/vignette.tscn" id="2_6j417"]
 [ext_resource type="PackedScene" uid="uid://dt278af587n8f" path="res://puzzlePieces/exit_door.tscn" id="3_d42ga"]
-[ext_resource type="PackedScene" uid="uid://dq3rl1pw6jmg8" path="res://scenes/Levels/level_room_1.tscn" id="4_huone"]
+[ext_resource type="PackedScene" uid="uid://od4p45nsg8g7" path="res://scenes/Levels/puzzle_4.tscn" id="5_c3mr2"]
 [ext_resource type="PackedScene" uid="uid://c44qjrc364yxo" path="res://puzzlePieces/turret.tscn" id="5_hoal2"]
 [ext_resource type="PackedScene" uid="uid://uvp3ycuekgkg" path="res://puzzlePieces/inmovable_object.tscn" id="8_hctej"]
 [ext_resource type="TileSet" uid="uid://coy7p6w7ufubt" path="res://assets/MytileSet.tres" id="9_jyr5n"]
@@ -34,7 +34,7 @@ y_sort_enabled = true
 z_index = -1
 position = Vector2(832, 832)
 rotation = 4.71239
-next_scene = ExtResource("4_huone")
+next_scene = ExtResource("5_c3mr2")
 
 [node name="Turret" parent="PuzzlePieces" instance=ExtResource("5_hoal2")]
 position = Vector2(192, 832)
@@ -81,10 +81,6 @@ layer_0/tile_data = PackedInt32Array(0, 196608, 1, 65536, 65536, 0, 131072, 6553
 
 [node name="Camera2D" parent="." instance=ExtResource("10_nmq4v")]
 position = Vector2(464, 284)
-limit_left = -256
-limit_top = -256
-limit_right = 1280
-limit_bottom = 1664
 
 [node name="Player" parent="." instance=ExtResource("11_b7n43")]
 position = Vector2(-128, -384)
