@@ -39,6 +39,7 @@ directories/dtl_directory={
 "dialog_puzzle0_0": "res://dialogic_timelines/dialog_puzzle0_0.dtl",
 "dialog_puzzle1_0": "res://dialogic_timelines/dialog_puzzle1_0.dtl",
 "dialog_puzzle2_0": "res://dialogic_timelines/dialog_puzzle2_0.dtl",
+"dialog_puzzle3_0": "res://dialogic_timelines/dialog_puzzle3_0.dtl",
 "dialog_test_0": "res://i18n/dialog_translations/dialog_test_0.dtl",
 "dialog_witch_room0_0": "res://assets/sounds/dialog_witch_room0_0.dtl",
 "dialog_witch_room1_0": "res://dialogic_timelines/dialog_witch_room1_0.dtl",

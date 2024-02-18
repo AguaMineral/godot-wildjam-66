@@ -1,0 +1,6 @@
+[signal arg="dialog_started"]
+join player (joni_potrait) 2
+player: This bitch...
+leave player
+[signal arg="dialog_ended"]
+[end_timeline]

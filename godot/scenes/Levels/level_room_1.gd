@@ -17,4 +17,4 @@ func _on_dialogic_signal(argument:String):
 		witch_appear_sound.play()
 
 func _on_animation_player_animation_finished(anim_name):
-	GameManager.fade_to_next_scene_by_path("res://test/test_scene.tscn")
+	GameManager.fade_to_next_scene_by_path("res://scenes/Levels/puzzle_3.tscn")
