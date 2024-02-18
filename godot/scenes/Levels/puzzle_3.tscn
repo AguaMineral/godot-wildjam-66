@@ -37,9 +37,6 @@ position = Vector2(-63, 978)
 rotation = 4.71239
 next_scene = ExtResource("4_huone")
 
-[node name="InteractArea" parent="PuzzlePieces/ExitDoor" index="5" node_paths=PackedStringArray("interaction_parent")]
-interaction_parent = NodePath("")
-
 [node name="Turret" parent="PuzzlePieces" instance=ExtResource("5_hoal2")]
 position = Vector2(-200, 429)
 
@@ -51,16 +48,10 @@ face_left = true
 position = Vector2(181, 206)
 
 [node name="ProjectileRotatorDown" parent="PuzzlePieces" instance=ExtResource("7_yr1qe")]
-position = Vector2(559, 704)
+position = Vector2(576, 704)
 
 [node name="InmovableObject" parent="PuzzlePieces" instance=ExtResource("8_hctej")]
-position = Vector2(60, 961)
-
-[node name="InmovableObject2" parent="PuzzlePieces" instance=ExtResource("8_hctej")]
-position = Vector2(60, 844)
-
-[node name="InmovableObject3" parent="PuzzlePieces" instance=ExtResource("8_hctej")]
-position = Vector2(319, 704)
+position = Vector2(576, 960)
 
 [node name="TileMap" type="TileMap" parent="."]
 z_index = -1

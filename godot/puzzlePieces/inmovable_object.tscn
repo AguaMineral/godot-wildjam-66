@@ -9,7 +9,7 @@ size = Vector2(126, 92)
 polygon = PackedVector2Array(13, 60, 28, 60, 47, 60, 52, 57, 55, 50, 53, 41, 53, 30, 51, 24, 47, 15, 34, 5, 22, 3, -3, 3, -15, 3, -37, 10, -44, 19, -49, 27, -50, 42, -52, 52, -48, 59, -31, 61, -10, 61)
 
 [node name="InmovableObject" type="StaticBody2D" groups=["environment"]]
-collision_layer = 4
+collision_layer = 36
 collision_mask = 28
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

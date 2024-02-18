@@ -191,6 +191,7 @@ locale/test="es"
 2d_physics/layer_5="projectile"
 2d_physics/layer_6="movableEntities"
 2d_physics/layer_7="rotators"
+2d_physics/layer_8="turrets"
 
 [rendering]
 

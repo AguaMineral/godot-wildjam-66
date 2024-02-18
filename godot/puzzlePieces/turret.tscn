@@ -12,8 +12,8 @@ size = Vector2(126, 99)
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_njlqm"]
 polygon = PackedVector2Array(-25, 50, -19, 54, -10, 55, -4, 55, 2, 55, 14, 54, 19, 52, 28, 48, 34, 43, 37, 34, 37, 28, 35, 21, 29, 14, 21, 7, 17, 4, 8, 4, -4, 3, -11, 5, -20, 7, -28, 10, -32, 13, -39, 17, -42, 24, -42, 30, -40, 39, -37, 43, -29, 48)
 
-[node name="Turret" type="StaticBody2D"]
-collision_layer = 32
+[node name="Turret" type="StaticBody2D" groups=["turret"]]
+collision_layer = 160
 collision_mask = 8
 script = ExtResource("1_yr5t0")
 

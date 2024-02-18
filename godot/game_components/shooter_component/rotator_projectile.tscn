@@ -20,11 +20,10 @@ autostart = true
 
 [node name="Area2D" type="Area2D" parent="." groups=["rotator_projectile"]]
 collision_layer = 16
-collision_mask = 12
+collision_mask = 140
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(65, 5)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_lst0i")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
