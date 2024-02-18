@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://c07dqsgujyusm"]
+
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_dx07g"]
+
+[node name="Camera2D" type="Camera2D"]
+position = Vector2(491, 593)
+
+[node name="PhantomCameraHost" type="Node" parent="."]
+script = ExtResource("1_dx07g")

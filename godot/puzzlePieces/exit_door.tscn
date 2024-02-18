@@ -1,7 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://dt278af587n8f"]
+[gd_scene load_steps=8 format=3 uid="uid://dt278af587n8f"]
 
 [ext_resource type="Script" path="res://puzzlePieces/exit_door.gd" id="1_gngcy"]
 [ext_resource type="Texture2D" uid="uid://de37h2wjl7moh" path="res://assets/TileSet128.png" id="2_gc5g2"]
+[ext_resource type="AudioStream" uid="uid://btwbisrr07dpt" path="res://assets/sounds/snd_fragment_retrievewav-14728.mp3" id="3_y84yv"]
+[ext_resource type="AudioStream" uid="uid://c7akkhgrhlao5" path="res://assets/sounds/sfx-accent-eye-glitter-tinkle-1-6342.ogg" id="4_rwe2m"]
+[ext_resource type="Texture2D" uid="uid://d2no5lqxpxlgt" path="res://assets/popintLightTexture/2d_lights_and_shadows_neutral_point_light.webp" id="5_phu14"]
+[ext_resource type="PackedScene" uid="uid://cklqhig5f0njo" path="res://game_components/interact_area/interact_area.tscn" id="6_rkdw8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dgpab"]
 size = Vector2(22, 127)
@@ -21,3 +25,25 @@ collision_mask = 16
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-53, -0.5)
 shape = SubResource("RectangleShape2D_dgpab")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_y84yv")
+volume_db = -5.0
+bus = &"Sound"
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_rwe2m")
+volume_db = 5.0
+bus = &"Sound"
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(0.92549, 0.878431, 0, 1)
+energy = 0.32
+texture = ExtResource("5_phu14")
+
+[node name="InteractArea" parent="." node_paths=PackedStringArray("interaction_parent") instance=ExtResource("6_rkdw8")]
+interact_label = "Escape"
+interact_type = "escape"
+interaction_parent = NodePath("..")
+
+[connection signal="finished" from="AudioStreamPlayer2" to="." method="_on_audio_stream_player_2_finished"]

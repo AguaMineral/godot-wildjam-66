@@ -1,0 +1,17 @@
+[signal arg="dialog_started"]
+join witch 2
+witch: Well, that was easy, eh?
+witch: Let's see how you handle this one, you worm.
+leave witch
+join player (joni_potrait) 2
+player (joni_potrait): Where the fuck I am?
+player (joni_potrait): And were the fuck are you? How can I hear you?
+leave player
+join witch (witch_potrait) 2
+witch: HAHAHAHAHAHAHAHAHAHAHAHHAHAHAHAHAHAHAAHAHAH
+witch: You are in you
+witch: Just escape this one
+witch: If you can
+witch: hehehe
+[signal arg="dialog_ended"]
+[end_timeline]

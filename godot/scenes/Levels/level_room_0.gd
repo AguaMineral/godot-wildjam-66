@@ -34,9 +34,7 @@ func _on_dialogic_signal(argument:String):
 		animation_player_player.play("player_fade_out")
 		witch_appear_sound.play()
 		await get_tree().create_timer(5).timeout
-		await Fade.fade_out().finished
-		get_tree().change_scene_to_file("res://test/test_scene.tscn")
-		Fade.fade_in()
+		GameManager.fade_to_next_scene_by_path("res://scenes/Levels/Puzzle/puzzle_0.tscn")
 
 func _on_particle_witch_appear_timer_timeout():
 	cpu_particles_2d.emitting = true

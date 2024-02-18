@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://qpnvsy6mjn5n"]
+
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2D.gd" id="1_vu0oe"]
+
+[node name="PhantomCamera2D" type="Node2D"]
+position = Vector2(1095, 607)
+script = ExtResource("1_vu0oe")
+priority_override = false
+priority = 0
+zoom = Vector2(1, 1)
+follow_mode = 5
+follow_target = NodePath("../Player")
+follow_parameters/target_offset = Vector2(0, 0)
+follow_parameters/damping = true
+follow_parameters/damping_value = 2.0
+follow_parameters/dead_zone_horizontal = 0.5
+follow_parameters/dead_zone_vertical = 0.5
+follow_parameters/viewfinder_in_play = false
+frame_preview = true
+pixel_perfect = false
+limit/draw_limits = true
+limit/left = -10000000
+limit/top = -10000000
+limit/right = 10000000
+limit/bottom = 10000000
+limit/limit_node_target = NodePath("")
+limit/smoothed = false
+tween_parameters = null
+tween_on_load = true
+inactive_update_mode = 0

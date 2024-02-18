@@ -1,0 +1,18 @@
+[signal arg="dialog_started"]
+join witch (witch_potrait) 2
+witch: Well, pay attention, because this is a matter of life and death. 
+leave witch
+join player 2
+player: ....................................
+leave player
+join witch (witch_potrait) 2
+witch: You're in what I call a 'sealed room.' Nothing can go in or out unless it's with magic.
+witch: See those butterflies?
+[signal arg="dialog_ended"]
+witch: They're mine, and they're magical. Throw a few to all the doors with rugs you can find, and maybe you'll be able to escape.
+witch: But be careful with them, they don't like being touched. They won't let you cross them, they're shy.
+witch: In the end, this is like one of those video games you love to play... Pressing 'E' can push that poor soul that's throwing my butterflies (with a nice hat) and they'll move to the opposite side you are facing them.
+witch: There are other minions of mine (with a nicer hat and a cape) that are there just to bother you AHAHAHAHAHAHAHAHAHA
+witch: THEY WILL NEVER MOVE!!!!
+witch: If get stuck you can press 'R' and I will reset the room, but you will have to listen to me all over again because my master didn't have the time to program it correctly.
+witch: Go ahead, try it, you silly thing.

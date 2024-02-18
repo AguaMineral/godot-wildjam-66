@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://test/test_scene.gd" id="1_4minq"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_qhm67"]
+[ext_resource type="PackedScene" uid="uid://qpnvsy6mjn5n" path="res://game_components/my_phantom_camera_2d.tscn" id="3_a5w8c"]
 [ext_resource type="PackedScene" uid="uid://b8kyamlltpxko" path="res://player/player.tscn" id="3_nuxtl"]
 [ext_resource type="PackedScene" uid="uid://c44qjrc364yxo" path="res://puzzlePieces/turret.tscn" id="4_0du5l"]
-[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2D.gd" id="4_7ctfj"]
 [ext_resource type="PackedScene" uid="uid://mbwj5ig1s3x7" path="res://test/test_scene_2.tscn" id="4_w6dub"]
 [ext_resource type="PackedScene" uid="uid://bnx4nfv2l1hgr" path="res://bruja/witch.tscn" id="7_2rvfl"]
 [ext_resource type="TileSet" uid="uid://coy7p6w7ufubt" path="res://assets/MytileSet.tres" id="7_gwymt"]
@@ -25,11 +25,7 @@ y_sort_enabled = true
 script = ExtResource("1_4minq")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(207, 533)
-limit_left = -513
-limit_top = -384
-limit_right = 1535
-limit_bottom = 1408
+position = Vector2(83.0502, 533)
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D"]
 script = ExtResource("2_qhm67")
@@ -38,29 +34,8 @@ script = ExtResource("2_qhm67")
 y_sort_enabled = true
 position = Vector2(-888, -74)
 
-[node name="PhantomCamera2D" type="Node2D" parent="Player"]
-position = Vector2(1095, 607)
-script = ExtResource("4_7ctfj")
-priority_override = false
-priority = 0
-zoom = Vector2(1, 1)
-follow_mode = 5
-follow_target = NodePath("../Player")
-follow_parameters/target_offset = Vector2(0, 0)
-follow_parameters/damping = true
-follow_parameters/damping_value = 2.0
-follow_parameters/dead_zone_horizontal = 0.5
-follow_parameters/dead_zone_vertical = 0.5
-follow_parameters/viewfinder_in_play = false
-frame_preview = true
-pixel_perfect = false
-limit/draw_limits = true
-limit/limit_node_target = NodePath("../../TileMap")
-limit/margin = Vector4i(0, 0, 0, 0)
-limit/smoothed = false
-tween_parameters = null
-tween_on_load = true
-inactive_update_mode = 0
+[node name="PhantomCamera2D" parent="Player" instance=ExtResource("3_a5w8c")]
+position = Vector2(971.049, 607)
 
 [node name="Player" parent="Player" instance=ExtResource("3_nuxtl")]
 position = Vector2(971, 607)

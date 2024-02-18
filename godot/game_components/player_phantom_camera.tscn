@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bdtar4s2mjo05"]
+
+[ext_resource type="PackedScene" uid="uid://qpnvsy6mjn5n" path="res://game_components/my_phantom_camera_2d.tscn" id="1_vdotj"]
+[ext_resource type="PackedScene" uid="uid://b8kyamlltpxko" path="res://player/player.tscn" id="2_jbgmr"]
+
+[node name="Player" type="Node2D"]
+y_sort_enabled = true
+
+[node name="PhantomCamera2D" parent="." instance=ExtResource("1_vdotj")]
+position = Vector2(491, 593)
+
+[node name="Player" parent="." instance=ExtResource("2_jbgmr")]
+position = Vector2(491, 593)

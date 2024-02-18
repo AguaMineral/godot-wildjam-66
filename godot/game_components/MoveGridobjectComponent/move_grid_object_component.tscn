@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://gtncp4o70a1s"]
+[gd_scene load_steps=3 format=3 uid="uid://gtncp4o70a1s"]
 
 [ext_resource type="Script" path="res://game_components/MoveGridobjectComponent/MoveGridObjectComponent.gd" id="1_7uko5"]
+[ext_resource type="AudioStream" uid="uid://spklgvy0xnrp" path="res://assets/sounds/wood-creak-single-v2-97096.ogg" id="2_iq0wq"]
 
 [node name="MoveGridObjectComponent" type="Node2D"]
 script = ExtResource("1_7uko5")
@@ -69,3 +70,8 @@ collision_mask = 32
 rotation = 1.5708
 target_position = Vector2(0, -100)
 collision_mask = 32
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_iq0wq")
+volume_db = -2.0
+bus = &"Sound"

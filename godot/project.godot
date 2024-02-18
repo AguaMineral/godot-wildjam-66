@@ -35,6 +35,8 @@ directories/dch_directory={
 "witch_interrogation": "res://dialogic_timelines/Characters/witch_interrogation.dch"
 }
 directories/dtl_directory={
+"dialog_puzzle0_0": "res://dialogic_timelines/dialog_puzzle0_0.dtl",
+"dialog_puzzle1_0": "res://dialogic_timelines/dialog_puzzle1_0.dtl",
 "dialog_test_0": "res://i18n/dialog_translations/dialog_test_0.dtl",
 "dialog_witch_room0_0": "res://assets/sounds/dialog_witch_room0_0.dtl",
 "test_timeline": "res://dialogic_timelines/test_timeline.dtl"
@@ -43,7 +45,7 @@ glossary/default_case_sensitive=true
 variables={}
 text/letter_speed=0.05
 text/initial_text_reveal_skippable=true
-text/text_reveal_skip_delay=0.05
+text/text_reveal_skip_delay=0.1
 text/autoadvance_per_character_delay=0
 text/autoadvance_ignored_characters_enabled=true
 animations/join_default_length=0.5
@@ -87,6 +89,8 @@ text/autoadvance_per_word_delay=0
 
 window/size/viewport_width=1440
 window/size/viewport_height=1080
+window/size/window_width_override=1296
+window/size/window_height_override=972
 window/stretch/mode="canvas_items"
 window/vsync/vsync_mode=0
 

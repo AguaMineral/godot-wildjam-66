@@ -4,6 +4,7 @@ extends CharacterBody2D
 @onready var knockback_timer = $KnockbackTimer
 @onready var animation_player = $AnimationPlayer
 @onready var sprite_2d = $Sprite2D
+@onready var label = $UIInfoMsg/Control/Label
 
 @onready var audio_stream_player_2d = $AudioStreamPlayer2D
 
@@ -102,6 +103,15 @@ func execute_interaction():
 				else:
 					Dialogic.start("dialog_witch_room0_0")
 					get_viewport().set_input_as_handled()
+			"escape":
+				if current_interaction.interaction_parent != null:
+					if current_interaction.interaction_parent.has_method("escape"):
+						var result = current_interaction.interaction_parent.escape()
+						if not result:
+							label.visible = true
+							label.text = "You need more butterflies to scape"
+							await get_tree().create_timer(3).timeout
+							label.visible = false
 
 func _on_player_hit(y_coord : float):
 	hit(y_coord)
@@ -116,7 +126,6 @@ func hit(y_coord : float):
 		knockback = Vector2.UP * 2000
 	elif y_coord < global_position.y:
 		knockback = Vector2.DOWN * 2000
-	print(knockback)
 	knockback_timer.start()
 	#knockback = -velocity.normalized() * 2000
 
@@ -127,7 +136,6 @@ func hit_vertical(x_coord : float):
 		knockback = Vector2.LEFT * 2000
 	elif x_coord < global_position.x:
 		knockback = Vector2.RIGHT * 2000
-	print(knockback)
 	knockback_timer.start()
 	#knockback = -velocity.normalized() * 2000
 

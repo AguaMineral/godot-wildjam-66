@@ -18,6 +18,8 @@ signal enable_shooter
 @onready var ray_cast_right_2 = $RayCastRight2
 @onready var ray_cast_lef_2 = $RayCastLef2
 
+@onready var audio_stream_player = $AudioStreamPlayer
+
 @export var object_to_move : Node2D
 @export var shooterComp : Node
 
@@ -73,6 +75,8 @@ func move_object() -> int:
 	var tween = create_tween()
 	tween.tween_property(object_to_move, "position", object_to_move.position + move_dir * tile_size, 1.0/animation_speed ).set_trans(Tween.TRANS_SINE)
 	moving = true
+	audio_stream_player.pitch_scale = randf_range(0.8,1.2)
+	audio_stream_player.play()
 	await tween.finished
 	moving = false
 	if move_dir == Vector2.ZERO:

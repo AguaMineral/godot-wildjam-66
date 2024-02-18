@@ -1,0 +1,82 @@
+[gd_scene load_steps=16 format=3 uid="uid://bv0h4i1t6ls3e"]
+
+[ext_resource type="Script" path="res://scenes/Levels/Puzzle/puzzle_0.gd" id="1_ms8fj"]
+[ext_resource type="TileSet" uid="uid://coy7p6w7ufubt" path="res://assets/MytileSet.tres" id="1_nhs6x"]
+[ext_resource type="PackedScene" uid="uid://dt278af587n8f" path="res://puzzlePieces/exit_door.tscn" id="1_w508g"]
+[ext_resource type="PackedScene" uid="uid://c44qjrc364yxo" path="res://puzzlePieces/turret.tscn" id="2_6ijpv"]
+[ext_resource type="PackedScene" uid="uid://40afq3mpw7ix" path="res://game_components/world_environment.tscn" id="3_6k2mk"]
+[ext_resource type="PackedScene" uid="uid://b5q63ckhi8grd" path="res://scenes/Levels/Puzzle/puzzle_1.tscn" id="3_ymxed"]
+[ext_resource type="PackedScene" uid="uid://dhc5jc3m08lew" path="res://game_components/directional_light_2d.tscn" id="4_dxyt4"]
+[ext_resource type="PackedScene" uid="uid://chjye2kl16g28" path="res://effecs/fog.tscn" id="5_pa6xg"]
+[ext_resource type="PackedScene" uid="uid://uvp3ycuekgkg" path="res://puzzlePieces/inmovable_object.tscn" id="5_wvx0c"]
+[ext_resource type="PackedScene" uid="uid://c07dqsgujyusm" path="res://game_components/camera_phantom.tscn" id="6_64570"]
+[ext_resource type="PackedScene" uid="uid://c58aekgiyeftw" path="res://game_components/vignette.tscn" id="6_ufrov"]
+[ext_resource type="PackedScene" uid="uid://bdtar4s2mjo05" path="res://game_components/player_phantom_camera.tscn" id="7_3ylub"]
+[ext_resource type="PackedScene" uid="uid://bku0ytg1mjig6" path="res://game_components/rain.tscn" id="7_kecj5"]
+[ext_resource type="PackedScene" uid="uid://d2yyil8fljk4b" path="res://game_components/thunder.tscn" id="8_7xqg3"]
+[ext_resource type="PackedScene" uid="uid://ctpcffram5hj4" path="res://game_components/house_sounds.tscn" id="9_0celr"]
+
+[node name="Puzzle0" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_ms8fj")
+
+[node name="PuzzlePieces" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="ExitDoor" parent="PuzzlePieces" instance=ExtResource("1_w508g")]
+z_index = -1
+position = Vector2(-192, 704)
+next_scene = ExtResource("3_ymxed")
+
+[node name="Turret" parent="PuzzlePieces" instance=ExtResource("2_6ijpv")]
+position = Vector2(960, 410)
+face_left = true
+
+[node name="InmovableObject" parent="PuzzlePieces" instance=ExtResource("5_wvx0c")]
+position = Vector2(190, 704)
+
+[node name="InmovableObject2" parent="PuzzlePieces" instance=ExtResource("5_wvx0c")]
+position = Vector2(190, 576)
+
+[node name="InmovableObject3" parent="PuzzlePieces" instance=ExtResource("5_wvx0c")]
+position = Vector2(190, 447)
+
+[node name="InmovableObject4" parent="PuzzlePieces" instance=ExtResource("5_wvx0c")]
+position = Vector2(190, 327)
+
+[node name="InmovableObject5" parent="PuzzlePieces" instance=ExtResource("5_wvx0c")]
+position = Vector2(190, 198)
+
+[node name="TileMap" type="TileMap" parent="."]
+z_index = -1
+tile_set = ExtResource("1_nhs6x")
+format = 2
+layer_0/tile_data = PackedInt32Array(0, 196608, 1, 65536, 65536, 0, 131072, 65536, 0, 196608, 65536, 0, 262144, 65536, 0, 327680, 65536, 0, 393216, 65536, 0, 458752, 65536, 0, 1, 196608, 1, 65537, 65536, 0, 131073, 65536, 0, 196609, 65536, 0, 262145, 65536, 0, 327681, 65536, 0, 393217, 65536, 0, 458753, 65536, 0, 2, 196608, 1, 65538, 65536, 0, 131074, 65536, 0, 196610, 65536, 0, 262146, 65536, 0, 327682, 65536, 0, 393218, 65536, 0, 458754, 65536, 0, 3, 196608, 1, 65539, 65536, 0, 131075, 65536, 0, 196611, 65536, 0, 262147, 65536, 0, 327683, 65536, 0, 393219, 65536, 0, 458755, 65536, 0, 4, 196608, 1, 65540, 65536, 0, 131076, 65536, 0, 196612, 65536, 0, 262148, 65536, 0, 327684, 65536, 0, 393220, 65536, 0, 458756, 65536, 0, 5, 196608, 1, 65541, 65536, 0, 131077, 65536, 0, 196613, 65536, 0, 262149, 65536, 0, 327685, 65536, 0, 393221, 65536, 0, 458757, 65536, 0, 6, 196608, 1, 65542, 65536, 0, 131078, 65536, 0, 196614, 65536, 0, 262150, 65536, 0, 327686, 65536, 0, 393222, 65536, 0, 458758, 65536, 0, 7, 196608, 1, 65543, 65536, 0, 131079, 65536, 0, 196615, 65536, 0, 262151, 65536, 0, 327687, 65536, 0, 393223, 65536, 0, 458759, 65536, 0, 8, 196608, 1, 65544, 65536, 0, 131080, 65536, 0, 196616, 65536, 0, 262152, 65536, 0, 327688, 65536, 0, 393224, 65536, 0, 458760, 65536, 0, 9, 196608, 1, 65545, 65536, 0, 131081, 65536, 0, 196617, 65536, 0, 262153, 65536, 0, 327689, 65536, 0, 393225, 65536, 0, 458761, 65536, 0, 10, 196608, 1, 65546, 65536, 0, 131082, 65536, 0, 196618, 65536, 0, 262154, 65536, 0, 327690, 65536, 0, 393226, 65536, 0, 458762, 65536, 0, 65547, 262144, 3, 131083, 262144, 3, 196619, 262144, 3, 262155, 262144, 3, 327691, 262144, 3, 393227, 262144, 3, 458763, 262144, 3, 524288, 262144, 2, 524289, 262144, 2, 524290, 262144, 2, 524291, 262144, 2, 524292, 262144, 2, 524293, 262144, 2, 524294, 262144, 2, 524295, 262144, 2, 524296, 262144, 2, 524297, 262144, 2, 524298, 262144, 2, 131071, 65536, 0, 196607, 65536, 0, 262143, 65536, 0, 327679, 65536, 0, 393215, 65536, 0, 458751, 65536, 0, 524287, 65536, 0, 65535, 196608, 1, 11, 262144, 3, 524299, 196608, 3, 131070, 65536, 0, 196606, 65536, 0, 262142, 65536, 0, 327678, 65536, 0, 393214, 65536, 0, 458750, 65536, 0, 524286, 65536, 0, 65534, 196608, 1, -2, 196608, 0, -1, 196608, 0, -65536, 196608, 0, -65535, 196608, 0, -65534, 196608, 0, -65533, 196608, 0, -65532, 196608, 0, -65531, 196608, 0, -65530, 196608, 0, -65529, 196608, 0, -65528, 196608, 0, -65527, 196608, 0, -65526, 196608, 0, -65525, 131072, 3, 65533, 262144, 1, 131069, 262144, 1, 196605, 262144, 1, 262141, 262144, 1, 327677, 262144, 1, 393213, 262144, 1, 458749, 262144, 1, 524285, 262144, 1, -3, 262144, 0, 589822, 262144, 2, 589823, 262144, 2, 589821, 196608, 4)
+
+[node name="Camera2D" parent="." instance=ExtResource("6_64570")]
+
+[node name="Player" parent="." instance=ExtResource("7_3ylub")]
+
+[node name="WorldEnvironment" parent="." instance=ExtResource("3_6k2mk")]
+
+[node name="DirectionalLight2D" parent="." instance=ExtResource("4_dxyt4")]
+
+[node name="EFfects" type="CanvasLayer" parent="."]
+
+[node name="ParallaxLayer" parent="EFfects" instance=ExtResource("5_pa6xg")]
+scroll_offset = Vector2(-26.1768, -1374.88)
+
+[node name="TextureRect" parent="EFfects" instance=ExtResource("6_ufrov")]
+
+[node name="Rain" parent="." instance=ExtResource("7_kecj5")]
+
+[node name="Thunder" parent="." instance=ExtResource("8_7xqg3")]
+
+[node name="HouseSounds" parent="." instance=ExtResource("9_0celr")]
+
+[node name="FirstDialogTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="FirstDialogTimer" to="." method="_on_first_dialog_timer_timeout"]

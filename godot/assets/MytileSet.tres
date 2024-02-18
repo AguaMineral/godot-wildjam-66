@@ -71,7 +71,7 @@ texture_region_size = Vector2i(128, 128)
 
 [resource]
 tile_size = Vector2i(128, 128)
-physics_layer_0/collision_layer = 4
-physics_layer_0/collision_mask = 8
+physics_layer_0/collision_layer = 36
+physics_layer_0/collision_mask = 40
 sources/0 = SubResource("TileSetAtlasSource_w8bid")
 pattern_0 = SubResource("TileMapPattern_ruo2p")

@@ -4,7 +4,7 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rvhs7"]
 shader = ExtResource("1_gfybx")
-shader_parameter/vignette_intensity = 0.7
+shader_parameter/vignette_intensity = 0.4
 shader_parameter/vignette_opacity = 1.0
 shader_parameter/vignette_rgb = Color(0, 0, 0, 1)
 
