@@ -1,8 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://f3pr72gj8ge"]
+[gd_scene load_steps=17 format=3 uid="uid://f3pr72gj8ge"]
 
 [ext_resource type="Texture2D" uid="uid://bd1ygkg1rbf4l" path="res://assets/IMG_4824.PNG" id="1_x8777"]
 [ext_resource type="Texture2D" uid="uid://qfmsn2owx7og" path="res://assets/IMG_4823.PNG" id="2_rlu63"]
 [ext_resource type="Texture2D" uid="uid://c1253n71ocfnf" path="res://assets/IMG_4822.PNG" id="3_l613u"]
+[ext_resource type="Texture2D" uid="uid://d2no5lqxpxlgt" path="res://assets/popintLightTexture/2d_lights_and_shadows_neutral_point_light.webp" id="4_ukgdh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nwek3"]
 size = Vector2(309, 98)
@@ -132,30 +133,74 @@ polygon = PackedVector2Array(36, -3, 1439, 2, 1442, 1080, 1, 1081, -13, 1221, 15
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(641, 616.5)
 scale = Vector2(4.40625, 4.89063)
-energy = 0.7
+energy = 0.5
 texture = SubResource("GradientTexture2D_npgax")
 
 [node name="PointLight2D2" type="PointLight2D" parent="."]
 position = Vector2(941, 621)
 scale = Vector2(4.40625, 4.89063)
-energy = 0.7
+energy = 0.5
 texture = SubResource("GradientTexture2D_17m7c")
 
 [node name="PointLight2D3" type="PointLight2D" parent="."]
 position = Vector2(934.75, 769)
 scale = Vector2(6.60156, 2.32422)
-energy = 1.6
+energy = 1.5
 texture = SubResource("GradientTexture2D_ems3e")
 
 [node name="PointLight2D4" type="PointLight2D" parent="."]
 position = Vector2(593, 775)
 scale = Vector2(6.60156, 2.32422)
-energy = 1.6
+energy = 1.5
 texture = SubResource("GradientTexture2D_ems3e")
+
+[node name="PointLight2D5" type="PointLight2D" parent="."]
+position = Vector2(1280.63, 329.406)
+scale = Vector2(7.39453, 7.8623)
+energy = 0.5
+texture = SubResource("GradientTexture2D_ems3e")
+
+[node name="PointLight2D6" type="PointLight2D" parent="."]
+position = Vector2(169, 697)
+scale = Vector2(2.50726, 2.33203)
+color = Color(1, 0.772549, 0.0823529, 1)
+texture = ExtResource("4_ukgdh")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 position = Vector2(792, 585)
 amount = 100
+preprocess = 5.0
+randomness = 0.04
+lifetime_randomness = 0.04
+emission_shape = 3
+emission_rect_extents = Vector2(200, 200)
+gravity = Vector2(0, 20)
+initial_velocity_min = 1.0
+initial_velocity_max = 3.0
+linear_accel_min = -3.0
+linear_accel_max = 3.0
+linear_accel_curve = SubResource("Curve_akne0")
+scale_amount_curve = SubResource("Curve_2hvlg")
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="."]
+position = Vector2(193, 708)
+amount = 30
+preprocess = 5.0
+randomness = 0.04
+lifetime_randomness = 0.04
+emission_shape = 3
+emission_rect_extents = Vector2(200, 200)
+gravity = Vector2(0, 20)
+initial_velocity_min = 1.0
+initial_velocity_max = 3.0
+linear_accel_min = -3.0
+linear_accel_max = 3.0
+linear_accel_curve = SubResource("Curve_akne0")
+scale_amount_curve = SubResource("Curve_2hvlg")
+
+[node name="CPUParticles2D3" type="CPUParticles2D" parent="."]
+position = Vector2(1248, 210)
+amount = 10
 preprocess = 5.0
 randomness = 0.04
 lifetime_randomness = 0.04
