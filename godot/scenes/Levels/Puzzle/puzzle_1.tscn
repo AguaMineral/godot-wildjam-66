@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://b5q63ckhi8grd"]
+[gd_scene load_steps=16 format=3 uid="uid://b5q63ckhi8grd"]
 
 [ext_resource type="Script" path="res://Puzzle1.gd" id="1_315w5"]
 [ext_resource type="PackedScene" uid="uid://dt278af587n8f" path="res://puzzlePieces/exit_door.tscn" id="2_7qhta"]
@@ -14,12 +14,18 @@
 [ext_resource type="PackedScene" uid="uid://chjye2kl16g28" path="res://effecs/fog.tscn" id="11_d58wr"]
 [ext_resource type="PackedScene" uid="uid://c58aekgiyeftw" path="res://game_components/vignette.tscn" id="12_1xgm2"]
 [ext_resource type="PackedScene" uid="uid://bku0ytg1mjig6" path="res://game_components/rain.tscn" id="13_xo6ot"]
-[ext_resource type="PackedScene" uid="uid://d2yyil8fljk4b" path="res://game_components/thunder.tscn" id="14_67aam"]
 [ext_resource type="PackedScene" uid="uid://ctpcffram5hj4" path="res://game_components/house_sounds.tscn" id="15_hjhl5"]
 
 [node name="Puzzle1" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_315w5")
+
+[node name="EFfects" type="CanvasLayer" parent="."]
+
+[node name="ParallaxLayer" parent="EFfects" instance=ExtResource("11_d58wr")]
+scroll_offset = Vector2(-26.1768, -1374.88)
+
+[node name="TextureRect" parent="EFfects" instance=ExtResource("12_1xgm2")]
 
 [node name="PuzzlePieces" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -88,16 +94,7 @@ limit/margin = Vector4i(0, 0, 0, 0)
 
 [node name="DirectionalLight2D" parent="." instance=ExtResource("10_o37nu")]
 
-[node name="EFfects" type="CanvasLayer" parent="."]
-
-[node name="ParallaxLayer" parent="EFfects" instance=ExtResource("11_d58wr")]
-scroll_offset = Vector2(-26.1768, -1374.88)
-
-[node name="TextureRect" parent="EFfects" instance=ExtResource("12_1xgm2")]
-
 [node name="Rain" parent="." instance=ExtResource("13_xo6ot")]
-
-[node name="Thunder" parent="." instance=ExtResource("14_67aam")]
 
 [node name="HouseSounds" parent="." instance=ExtResource("15_hjhl5")]
 

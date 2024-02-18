@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cuilusdhr1fmn"]
+[gd_scene load_steps=18 format=3 uid="uid://cuilusdhr1fmn"]
 
 [ext_resource type="Texture2D" uid="uid://b1tthvj34lt1a" path="res://assets/IMG_4817.PNG" id="1_kq371"]
 [ext_resource type="Script" path="res://scenes/Levels/level_room_0.gd" id="1_qy165"]
@@ -11,6 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://bq5bilbxetsc2" path="res://effecs/cpu_particles_2d.tscn" id="9_vbgkx"]
 [ext_resource type="AudioStream" uid="uid://u82ab763iqsl" path="res://assets/sounds/bell-bowl-g-ish-74001.mp3" id="10_71f5t"]
 [ext_resource type="PackedScene" uid="uid://bku0ytg1mjig6" path="res://game_components/rain.tscn" id="11_ukd7e"]
+[ext_resource type="PackedScene" uid="uid://ctpcffram5hj4" path="res://game_components/house_sounds.tscn" id="12_0eq7w"]
+[ext_resource type="PackedScene" uid="uid://d2yyil8fljk4b" path="res://game_components/thunder.tscn" id="13_iyvcq"]
 
 [sub_resource type="Animation" id="Animation_3vv8c"]
 length = 0.001
@@ -172,6 +174,10 @@ volume_db = -5.0
 bus = &"Sound"
 
 [node name="Rain" parent="." instance=ExtResource("11_ukd7e")]
+
+[node name="HouseSounds" parent="." instance=ExtResource("12_0eq7w")]
+
+[node name="Thunder" parent="." instance=ExtResource("13_iyvcq")]
 
 [connection signal="timeout" from="InitSceneTimer" to="." method="_on_init_scene_timer_timeout"]
 [connection signal="timeout" from="ParticleWitchAppearTimer" to="." method="_on_particle_witch_appear_timer_timeout"]
