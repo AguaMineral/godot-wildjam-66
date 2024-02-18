@@ -1,12 +1,12 @@
 [gd_scene load_steps=18 format=3 uid="uid://cuilusdhr1fmn"]
 
-[ext_resource type="Texture2D" uid="uid://b1tthvj34lt1a" path="res://assets/IMG_4817.PNG" id="1_kq371"]
 [ext_resource type="Script" path="res://scenes/Levels/level_room_0.gd" id="1_qy165"]
 [ext_resource type="PackedScene" uid="uid://b8kyamlltpxko" path="res://player/player.tscn" id="2_0epww"]
 [ext_resource type="PackedScene" uid="uid://bnx4nfv2l1hgr" path="res://bruja/witch.tscn" id="3_rulef"]
 [ext_resource type="PackedScene" uid="uid://40afq3mpw7ix" path="res://game_components/world_environment.tscn" id="4_usvxs"]
 [ext_resource type="PackedScene" uid="uid://chjye2kl16g28" path="res://effecs/fog.tscn" id="5_rw1u7"]
 [ext_resource type="PackedScene" uid="uid://c58aekgiyeftw" path="res://game_components/vignette.tscn" id="6_n0yj0"]
+[ext_resource type="PackedScene" uid="uid://f3pr72gj8ge" path="res://game_components/room.tscn" id="6_s7wuo"]
 [ext_resource type="PackedScene" uid="uid://dhc5jc3m08lew" path="res://game_components/directional_light_2d.tscn" id="7_erpcy"]
 [ext_resource type="PackedScene" uid="uid://bq5bilbxetsc2" path="res://effecs/cpu_particles_2d.tscn" id="9_vbgkx"]
 [ext_resource type="AudioStream" uid="uid://u82ab763iqsl" path="res://assets/sounds/bell-bowl-g-ish-74001.mp3" id="10_71f5t"]
@@ -127,12 +127,11 @@ lifetime = 5.0
 energy = 1.0
 texture_scale = 1.0
 
-[node name="Room" type="Sprite2D" parent="."]
-texture = ExtResource("1_kq371")
-centered = false
-
 [node name="Player" parent="." instance=ExtResource("2_0epww")]
 position = Vector2(1187, 334)
+
+[node name="Room" parent="." instance=ExtResource("6_s7wuo")]
+y_sort_enabled = true
 
 [node name="Witch" parent="." instance=ExtResource("3_rulef")]
 modulate = Color(1, 1, 1, 0)

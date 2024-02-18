@@ -1,0 +1,170 @@
+[gd_scene load_steps=16 format=3 uid="uid://f3pr72gj8ge"]
+
+[ext_resource type="Texture2D" uid="uid://bd1ygkg1rbf4l" path="res://assets/IMG_4824.PNG" id="1_x8777"]
+[ext_resource type="Texture2D" uid="uid://qfmsn2owx7og" path="res://assets/IMG_4823.PNG" id="2_rlu63"]
+[ext_resource type="Texture2D" uid="uid://c1253n71ocfnf" path="res://assets/IMG_4822.PNG" id="3_l613u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nwek3"]
+size = Vector2(309, 98)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5phuo"]
+size = Vector2(415, 58)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_my8x7"]
+size = Vector2(409, 208)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_th3ri"]
+size = Vector2(392, 615)
+
+[sub_resource type="Gradient" id="Gradient_0ptj6"]
+offsets = PackedFloat32Array(0.646617, 1)
+colors = PackedColorArray(0, 0, 0, 1, 1, 0.176471, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_npgax"]
+gradient = SubResource("Gradient_0ptj6")
+fill_from = Vector2(0.0982906, 0.183761)
+fill_to = Vector2(0.461538, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_yu4nb"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.679198, 1)
+colors = PackedColorArray(0, 0, 0, 1, 1, 0.172549, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_17m7c"]
+gradient = SubResource("Gradient_yu4nb")
+fill_from = Vector2(1, 0.145299)
+fill_to = Vector2(0.5, 0.538462)
+
+[sub_resource type="Gradient" id="Gradient_eymjs"]
+offsets = PackedFloat32Array(0.578947, 1)
+colors = PackedColorArray(1, 0.172549, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ems3e"]
+gradient = SubResource("Gradient_eymjs")
+fill = 1
+fill_from = Vector2(0.495726, 0.5)
+fill_to = Vector2(0.111111, 0.123932)
+
+[sub_resource type="Curve" id="Curve_akne0"]
+min_value = -3.0
+max_value = 3.0
+_data = [Vector2(0, 3), 0.0, 0.0, 0, 0, Vector2(1, 0.0269058), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_2hvlg"]
+max_value = 3.0
+_data = [Vector2(0.00472813, 0.516144), 0.0, 0.0, 0, 0, Vector2(1, 1.89821), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="Room" type="Sprite2D"]
+texture = ExtResource("1_x8777")
+centered = false
+
+[node name="windows" type="Sprite2D" parent="."]
+texture = ExtResource("2_rlu63")
+centered = false
+
+[node name="Table" type="StaticBody2D" parent="."]
+position = Vector2(714, 840)
+
+[node name="Table" type="Sprite2D" parent="Table"]
+texture = ExtResource("3_l613u")
+region_enabled = true
+region_rect = Rect2(541.4, 768.3, 341, 174.9)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Table"]
+position = Vector2(2.5, 25)
+shape = SubResource("RectangleShape2D_nwek3")
+
+[node name="Sofa" type="StaticBody2D" parent="."]
+position = Vector2(708, 648)
+
+[node name="Sprite2D" type="Sprite2D" parent="Sofa"]
+texture = ExtResource("3_l613u")
+region_enabled = true
+region_rect = Rect2(492.67, 562.669, 429.752, 171.074)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sofa"]
+position = Vector2(4.5, -4)
+shape = SubResource("RectangleShape2D_5phuo")
+
+[node name="Table2" type="StaticBody2D" parent="."]
+position = Vector2(214, 922)
+
+[node name="Sprite2D" type="Sprite2D" parent="Table2"]
+texture = ExtResource("3_l613u")
+region_enabled = true
+region_rect = Rect2(0.450073, 764.86, 429.55, 314.6)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Table2"]
+position = Vector2(-9.5, 50)
+shape = SubResource("RectangleShape2D_my8x7")
+
+[node name="bathroom" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="bathroom"]
+texture = ExtResource("3_l613u")
+centered = false
+region_enabled = true
+region_rect = Rect2(-0.287113, 0.363359, 402.856, 656.284)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bathroom"]
+position = Vector2(186, 297.5)
+shape = SubResource("RectangleShape2D_th3ri")
+
+[node name="BedRoom" type="StaticBody2D" parent="."]
+position = Vector2(910, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="BedRoom"]
+texture = ExtResource("3_l613u")
+centered = false
+region_enabled = true
+region_rect = Rect2(909.474, -0.243403, 530.67, 601.967)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BedRoom"]
+polygon = PackedVector2Array(4, 565, 178, 566, 181, 551, 239, 551, 238, 390, 180, 388, 178, 304, 347, 304, 385, 305, 388, 456, 530, 456, 530, 0, 74, 2, -519, 185, -519, 244, -383, 244, -378, 595, -14, 600)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(36, -3, 1439, 2, 1442, 1080, 1, 1081, -13, 1221, 1536, 1208, 1522, -139, -144, -121, -144, 1085, -23, 1079, -3, 1075, -7, 15)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(641, 616.5)
+scale = Vector2(4.40625, 4.89063)
+energy = 0.7
+texture = SubResource("GradientTexture2D_npgax")
+
+[node name="PointLight2D2" type="PointLight2D" parent="."]
+position = Vector2(941, 621)
+scale = Vector2(4.40625, 4.89063)
+energy = 0.7
+texture = SubResource("GradientTexture2D_17m7c")
+
+[node name="PointLight2D3" type="PointLight2D" parent="."]
+position = Vector2(934.75, 769)
+scale = Vector2(6.60156, 2.32422)
+energy = 1.6
+texture = SubResource("GradientTexture2D_ems3e")
+
+[node name="PointLight2D4" type="PointLight2D" parent="."]
+position = Vector2(593, 775)
+scale = Vector2(6.60156, 2.32422)
+energy = 1.6
+texture = SubResource("GradientTexture2D_ems3e")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(792, 585)
+amount = 100
+preprocess = 5.0
+randomness = 0.04
+lifetime_randomness = 0.04
+emission_shape = 3
+emission_rect_extents = Vector2(200, 200)
+gravity = Vector2(0, 20)
+initial_velocity_min = 1.0
+initial_velocity_max = 3.0
+linear_accel_min = -3.0
+linear_accel_max = 3.0
+linear_accel_curve = SubResource("Curve_akne0")
+scale_amount_curve = SubResource("Curve_2hvlg")

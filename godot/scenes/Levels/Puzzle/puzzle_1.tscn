@@ -86,7 +86,6 @@ limit_bottom = 1152
 position = Vector2(-93, 0)
 
 [node name="PhantomCamera2D" parent="Player" index="0"]
-position = Vector2(491, 593)
 limit/limit_node_target = NodePath("../../TileMap")
 limit/margin = Vector4i(0, 0, 0, 0)
 

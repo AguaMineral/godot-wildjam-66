@@ -1,0 +1,40 @@
+[signal arg="dialog_started"]
+join player (joni_potrait) 2
+player: Finally.....
+player: Can you get the fuck out of my house?
+player: I will call the police
+leave player
+join witch (witch_potrait) 2
+witch: Wait!!
+leave witch
+join player (joni_potrait) 2
+player: .....
+leave player
+join witch (witch_potrait) 2
+witch: Hehe
+witch: Do you want to see your boyfriend again?
+leave witch
+join player (joni_potrait) 2
+player: It...
+player: Is...
+player: Not...
+player: My boyfriend
+leave player
+join witch (witch_potrait) 2
+witch: Well, whatever
+witch: Did you enjoy my...
+witch: YOUR* sealed rooms?
+leave witch
+join player (joni_potrait) 2
+player: No idea why I haven't called the police yet...
+player: Get out of my place already.
+leave player
+join witch (witch_potrait) 2
+witch: Well, it might just be that you're the one who needs to leave...
+witch: From yourself
+leave witch
+join player (joni_potrait) 2
+player: ARE YOU FUCKING CRAZ-....
+leave player [animation="Slide Out Left" length="0.3"]
+[signal arg="dialog_ended"]
+[end_timeline]

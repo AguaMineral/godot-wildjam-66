@@ -24,8 +24,8 @@ config/icon="res://icon.svg"
 
 UserSettings="*res://settings/user_settings.gd"
 GameManager="*res://globals/GameManager.gd"
-Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 MusicAutoload="*res://globals/music_autoload.tscn"
+Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 
 [dialogic]
 
@@ -41,6 +41,7 @@ directories/dtl_directory={
 "dialog_puzzle2_0": "res://dialogic_timelines/dialog_puzzle2_0.dtl",
 "dialog_test_0": "res://i18n/dialog_translations/dialog_test_0.dtl",
 "dialog_witch_room0_0": "res://assets/sounds/dialog_witch_room0_0.dtl",
+"dialog_witch_room1_0": "res://dialogic_timelines/dialog_witch_room1_0.dtl",
 "test_timeline": "res://dialogic_timelines/test_timeline.dtl"
 }
 glossary/default_case_sensitive=true

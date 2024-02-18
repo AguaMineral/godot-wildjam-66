@@ -5,4 +5,5 @@ func play():
 	audio_stream_player.play()
 
 func stop():
-	audio_stream_player.stop()
+	if audio_stream_player.playing:
+		audio_stream_player.stop()

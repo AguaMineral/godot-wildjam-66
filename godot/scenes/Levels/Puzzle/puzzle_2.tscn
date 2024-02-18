@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://Puzzle2.gd" id="1_4oulm"]
 [ext_resource type="PackedScene" uid="uid://dt278af587n8f" path="res://puzzlePieces/exit_door.tscn" id="2_t824l"]
-[ext_resource type="PackedScene" uid="uid://h5s0aae2ff5k" path="res://test/test_scene.tscn" id="3_36j6n"]
 [ext_resource type="PackedScene" uid="uid://c44qjrc364yxo" path="res://puzzlePieces/turret.tscn" id="4_hpijb"]
 [ext_resource type="PackedScene" uid="uid://uvp3ycuekgkg" path="res://puzzlePieces/inmovable_object.tscn" id="5_fiwaf"]
+[ext_resource type="PackedScene" uid="uid://dq3rl1pw6jmg8" path="res://scenes/Levels/level_room_1.tscn" id="5_uwewv"]
 [ext_resource type="PackedScene" uid="uid://dfxg5vkuqmmtm" path="res://puzzlePieces/projectile_rotator_down.tscn" id="6_bnp1a"]
 [ext_resource type="PackedScene" uid="uid://bejfg2rn3lptj" path="res://puzzlePieces/projectile_rotator.tscn" id="6_nkqkm"]
 [ext_resource type="TileSet" uid="uid://coy7p6w7ufubt" path="res://assets/MytileSet.tres" id="7_llaa4"]
@@ -35,7 +35,7 @@ y_sort_enabled = true
 z_index = -1
 position = Vector2(-63, 978)
 rotation = 4.71239
-next_scene = ExtResource("3_36j6n")
+next_scene = ExtResource("5_uwewv")
 
 [node name="Turret" parent="PuzzlePieces" instance=ExtResource("4_hpijb")]
 position = Vector2(-200, 429)
@@ -76,7 +76,6 @@ limit_bottom = 1280
 position = Vector2(-93, -223)
 
 [node name="PhantomCamera2D" parent="Player" index="0"]
-position = Vector2(491, 593)
 limit/limit_node_target = NodePath("../../TileMap")
 limit/margin = Vector4i(0, 0, 0, 0)
 
