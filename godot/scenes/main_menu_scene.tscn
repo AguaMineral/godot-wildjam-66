@@ -1,11 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://dv2y18ye8j7o0"]
+[gd_scene load_steps=11 format=3 uid="uid://dv2y18ye8j7o0"]
 
 [ext_resource type="Script" path="res://scenes/main_menu_scene.gd" id="1_1foie"]
 [ext_resource type="PackedScene" uid="uid://cuilusdhr1fmn" path="res://scenes/Levels/level_room_0.tscn" id="2_c2slx"]
 [ext_resource type="PackedScene" uid="uid://g4qhvbvdm62w" path="res://scenes/game_settings_scene.tscn" id="3_dgs4d"]
 [ext_resource type="PackedScene" uid="uid://bkk87o2ooo6at" path="res://ui/overlays/fade_overlay.tscn" id="3_kf1us"]
 [ext_resource type="PackedScene" uid="uid://b4blrdjthcxnn" path="res://ui/components/game_logo.tscn" id="4_fnufg"]
-[ext_resource type="AudioStream" uid="uid://dlchk3c1baiy8" path="res://music/corgie-title.ogg" id="6_drnm6"]
+[ext_resource type="FontFile" uid="uid://ctdayw8npi2fy" path="res://assets/fonts/Merienda/static/Merienda-SemiBold.ttf" id="5_mqc7s"]
+[ext_resource type="AudioStream" uid="uid://d2n5sojwpd86x" path="res://assets/sounds/light-rain-ambient-114354.mp3" id="6_11uvi"]
+[ext_resource type="FontFile" uid="uid://bjwt175mq5rj" path="res://assets/fonts/Merienda/static/Merienda-Light.ttf" id="6_yglbr"]
+[ext_resource type="PackedScene" uid="uid://pabq7pqrru0p" path="res://scenes/Levels/level_room_test.tscn" id="7_tce7t"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_2ikbh"]
 font_size = 8
@@ -17,6 +20,7 @@ game_scene = ExtResource("2_c2slx")
 settings_scene = ExtResource("3_dgs4d")
 
 [node name="UI" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="CenterContainer" type="CenterContainer" parent="UI"]
 anchors_preset = 15
@@ -30,6 +34,7 @@ layout_mode = 2
 theme_override_constants/separation = 5
 
 [node name="GameLogo" parent="UI/CenterContainer/VBoxContainer" instance=ExtResource("4_fnufg")]
+visible = false
 layout_mode = 2
 
 [node name="ContinueButton" type="Button" parent="UI/CenterContainer/VBoxContainer"]
@@ -43,21 +48,18 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("5_mqc7s")
+theme_override_font_sizes/font_size = 30
 text = "PLAY"
-
-[node name="SettingsButton" type="Button" parent="UI/CenterContainer/VBoxContainer"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(180, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-text = "settings"
+flat = true
 
 [node name="ExitButton" type="Button" parent="UI/CenterContainer/VBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 size_flags_horizontal = 4
-text = "leave_game"
+text = "leave game"
+flat = true
 
 [node name="Credits" type="MarginContainer" parent="UI/CenterContainer/VBoxContainer"]
 layout_mode = 2
@@ -65,8 +67,12 @@ size_flags_horizontal = 4
 theme_override_constants/margin_top = 10
 
 [node name="Label" type="Label" parent="UI/CenterContainer/VBoxContainer/Credits"]
+visible = false
 layout_mode = 2
-text = "credits"
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_yglbr")
+theme_override_font_sizes/font_size = 50
+text = "Game by Guinii4 and ReLoGames"
 label_settings = SubResource("LabelSettings_2ikbh")
 horizontal_alignment = 1
 
@@ -75,6 +81,9 @@ unique_name_in_owner = true
 visible = false
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_drnm6")
+stream = ExtResource("6_11uvi")
+volume_db = -5.0
 autoplay = true
 bus = &"Music"
+
+[node name="LevelRoomTest" parent="." instance=ExtResource("7_tce7t")]

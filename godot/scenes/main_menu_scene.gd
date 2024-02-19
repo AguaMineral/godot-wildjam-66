@@ -15,13 +15,13 @@ var new_game = true
 func _ready() -> void:
 	overlay.visible = true
 	new_game_button.disabled = game_scene == null
-	settings_button.disabled = settings_scene == null
+	
 	continue_button.visible = SaveGame.has_save() and SaveGame.ENABLED
 	
 	# connect signals
 	new_game_button.pressed.connect(_on_play_button_pressed)
 	continue_button.pressed.connect(_on_continue_button_pressed)
-	settings_button.pressed.connect(_on_settings_button_pressed)
+	
 	exit_button.pressed.connect(_on_exit_button_pressed)
 	overlay.on_complete_fade_out.connect(_on_fade_overlay_on_complete_fade_out)
 	

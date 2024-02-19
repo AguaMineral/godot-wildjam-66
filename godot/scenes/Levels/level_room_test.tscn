@@ -1,0 +1,150 @@
+[gd_scene load_steps=13 format=3 uid="uid://pabq7pqrru0p"]
+
+[ext_resource type="PackedScene" uid="uid://c58aekgiyeftw" path="res://game_components/vignette.tscn" id="1_m3u3a"]
+[ext_resource type="PackedScene" uid="uid://bq5bilbxetsc2" path="res://effecs/cpu_particles_2d.tscn" id="2_n13wp"]
+[ext_resource type="PackedScene" uid="uid://f3pr72gj8ge" path="res://game_components/room.tscn" id="3_qpk3x"]
+[ext_resource type="Texture2D" uid="uid://cbt52eojf2o7p" path="res://assets/joni.png" id="4_qu85s"]
+[ext_resource type="PackedScene" uid="uid://40afq3mpw7ix" path="res://game_components/world_environment.tscn" id="5_3k7o4"]
+[ext_resource type="PackedScene" uid="uid://dhc5jc3m08lew" path="res://game_components/directional_light_2d.tscn" id="6_jdmu6"]
+[ext_resource type="PackedScene" uid="uid://bku0ytg1mjig6" path="res://game_components/rain.tscn" id="7_dfrd6"]
+[ext_resource type="PackedScene" uid="uid://ctpcffram5hj4" path="res://game_components/house_sounds.tscn" id="8_3cymj"]
+
+[sub_resource type="Animation" id="Animation_3vv8c"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PointLight2D:energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../UI/ParallaxLayer/ParallaxLayer/ColorRect:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0.937255, 0.984314, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_37pbv"]
+resource_name = "fog_fade_in"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../UI/ParallaxLayer/ParallaxLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0.937255, 0.984314, 0), Color(0, 0.937255, 0.984314, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_6ggim"]
+resource_name = "witch_fade_in"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PointLight2D:energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_62a8m"]
+_data = {
+"RESET": SubResource("Animation_3vv8c"),
+"fog_fade_in": SubResource("Animation_37pbv"),
+"witch_fade_in": SubResource("Animation_6ggim")
+}
+
+[node name="LevelRoomTest" type="Node2D"]
+y_sort_enabled = true
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" parent="UI" instance=ExtResource("1_m3u3a")]
+visible = false
+
+[node name="CPUParticles2D" parent="." instance=ExtResource("2_n13wp")]
+z_index = 3
+position = Vector2(1199, 713)
+amount = 100
+lifetime = 5.0
+
+[node name="PointLight2D" parent="CPUParticles2D" index="0"]
+energy = 1.0
+texture_scale = 1.0
+
+[node name="Room" parent="." instance=ExtResource("3_qpk3x")]
+
+[node name="Sprite2D" type="Sprite2D" parent="Room"]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(1232, 319)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("4_qu85s")
+
+[node name="WorldEnvironment" parent="." instance=ExtResource("5_3k7o4")]
+
+[node name="DirectionalLight2D" parent="." instance=ExtResource("6_jdmu6")]
+
+[node name="InitSceneTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+autostart = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("")
+libraries = {
+"": SubResource("AnimationLibrary_62a8m")
+}
+
+[node name="Rain" parent="." instance=ExtResource("7_dfrd6")]
+
+[node name="HouseSounds" parent="." instance=ExtResource("8_3cymj")]
+
+[connection signal="timeout" from="InitSceneTimer" to="." method="_on_init_scene_timer_timeout"]
+
+[editable path="CPUParticles2D"]
