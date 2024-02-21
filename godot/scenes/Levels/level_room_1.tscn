@@ -150,6 +150,9 @@ region_enabled = true
 [node name="Player" parent="." instance=ExtResource("6_u807s")]
 position = Vector2(998, 821)
 
+[node name="AnimationPlayer" parent="Player" index="4"]
+blend_times = [&"player_boing", &"player_walking", 0.5, &"player_walking", &"player_boing", 0.5]
+
 [node name="WorldEnvironment" parent="." instance=ExtResource("8_fw1m8")]
 
 [node name="DirectionalLight2D" parent="." instance=ExtResource("9_saodc")]

@@ -123,6 +123,9 @@ texture_scale = 1.0
 [node name="Player" parent="." instance=ExtResource("7_34iu4")]
 position = Vector2(1192, 356)
 
+[node name="AnimationPlayer" parent="Player" index="4"]
+blend_times = [&"player_boing", &"player_walking", 0.5, &"player_walking", &"player_boing", 0.5]
+
 [node name="WorldEnvironment" parent="." instance=ExtResource("8_nd3f3")]
 
 [node name="DirectionalLight2D" parent="." instance=ExtResource("9_2x3xd")]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://udqjalhye14d"]
+[gd_scene load_steps=7 format=3 uid="uid://udqjalhye14d"]
 
 [ext_resource type="Texture2D" uid="uid://8l1lr7lyn0at" path="res://puzzlePieces/butterfly.png" id="1_rjxw4"]
 [ext_resource type="Script" path="res://game_components/shooter_component/projectile.gd" id="1_wq3lx"]
@@ -8,13 +8,16 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1iuiw"]
 size = Vector2(95, 20)
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_3mowg"]
+blend_mode = 1
+
 [node name="Sprite2D" type="Sprite2D" groups=["projectile"]]
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("1_rjxw4")
 script = ExtResource("1_wq3lx")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 7.0
 one_shot = true
 autostart = true
 
@@ -27,6 +30,7 @@ position = Vector2(-2.5, 0)
 shape = SubResource("RectangleShape2D_1iuiw")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
+visible = false
 color = Color(1, 0.686275, 0, 1)
 shadow_enabled = true
 shadow_item_cull_mask = 5
@@ -34,6 +38,11 @@ texture = ExtResource("3_26tab")
 
 [node name="CPUParticles2D" parent="." instance=ExtResource("4_bhjqd")]
 amount = 5
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.270588, 0.227451, 0.0431373, 1)
+material = SubResource("CanvasItemMaterial_3mowg")
+texture = ExtResource("3_26tab")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

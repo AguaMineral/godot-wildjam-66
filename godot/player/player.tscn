@@ -271,7 +271,7 @@ libraries = {
 }
 autoplay = "player_idle"
 next/player_walking = &"player_idle"
-blend_times = [&"player_walking", &"player_boing", 0.5, &"player_boing", &"player_walking", 0.5]
+blend_times = [&"player_boing", &"player_walking", 0.5, &"player_walking", &"player_boing", 0.5]
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 light_mask = 5

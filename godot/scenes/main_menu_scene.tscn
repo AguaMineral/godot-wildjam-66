@@ -20,7 +20,6 @@ game_scene = ExtResource("2_c2slx")
 settings_scene = ExtResource("3_dgs4d")
 
 [node name="UI" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="CenterContainer" type="CenterContainer" parent="UI"]
 anchors_preset = 15

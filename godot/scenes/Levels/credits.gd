@@ -1,5 +1,5 @@
-extends Control
+extends Node
 
 func _ready():
-	await get_tree().create_timer(5).timeout
-	get_tree().quit()
+	await get_tree().create_timer(7).timeout
+	GameManager.fade_and_quit()
